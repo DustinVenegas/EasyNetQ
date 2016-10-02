@@ -12,7 +12,7 @@ namespace EasyNetQ.Tests
         {
             var obj = ReflectionHelpers.CreateInstance<ClassWithDefaultConstuctor>();
             Assert.NotNull(obj);
-            Assert.IsTrue(obj.GetType() == typeof(ClassWithDefaultConstuctor));
+            Assert.True(obj.GetType() == typeof(ClassWithDefaultConstuctor));
         }
 
         [Fact]
@@ -51,7 +51,7 @@ namespace EasyNetQ.Tests
             }
             stopWatch.Stop();
             var activator = stopWatch.Elapsed;
-            Assert.IsTrue(creatorTime < activator);
+            Assert.True(creatorTime < activator);
             Assert.AreEqual(2000000, count);
         }
 
@@ -60,7 +60,7 @@ namespace EasyNetQ.Tests
         {
             var obj = ReflectionHelpers.CreateInstance(typeof(ClassWithOneParameterConstructor), 1);
             Assert.NotNull(obj);
-            Assert.IsTrue(obj.GetType() == typeof(ClassWithOneParameterConstructor));
+            Assert.True(obj.GetType() == typeof(ClassWithOneParameterConstructor));
         }
 
         [Fact]
@@ -101,7 +101,7 @@ namespace EasyNetQ.Tests
             }
             stopWatch.Stop();
             var activator = stopWatch.Elapsed;
-            Assert.IsTrue(creatorTime < activator);
+            Assert.True(creatorTime < activator);
             Assert.AreEqual(2000000, count);
         }
 
@@ -110,7 +110,7 @@ namespace EasyNetQ.Tests
         {
             var obj = ReflectionHelpers.CreateInstance(typeof(ClassWithTwoParametersConstructor), 1, 2);
             Assert.NotNull(obj);
-            Assert.IsTrue(obj.GetType() == typeof(ClassWithTwoParametersConstructor));
+            Assert.True(obj.GetType() == typeof(ClassWithTwoParametersConstructor));
         }
 
         [Fact]
@@ -151,15 +151,15 @@ namespace EasyNetQ.Tests
             }
             stopWatch.Stop();
             var activator = stopWatch.Elapsed;
-            Assert.IsTrue(creatorTime < activator);
+            Assert.True(creatorTime < activator);
             Assert.AreEqual(6000000, count);
         }
 
         [Fact]
         public void ShouldGetAttributes()
         {
-            Assert.IsTrue(typeof(TestAttributedClass).GetAttributes<OneTestAttribute>().Any());
-            Assert.IsTrue(typeof(TestAttributedClass).GetAttributes<AnotherTestAttribute>().Any());
+            Assert.True(typeof(TestAttributedClass).GetAttributes<OneTestAttribute>().Any());
+            Assert.True(typeof(TestAttributedClass).GetAttributes<AnotherTestAttribute>().Any());
         }
 
         [Fact, Explicit("Fails on build server")]
@@ -192,7 +192,7 @@ namespace EasyNetQ.Tests
             }
             stopWatch.Stop();
             var getAttributesTime = stopWatch.Elapsed;
-            Assert.IsTrue(getAttributesTime + getAttributesTime < getCustomAttributesTime);
+            Assert.True(getAttributesTime + getAttributesTime < getCustomAttributesTime);
             Assert.AreEqual(2000000, count);
             Console.WriteLine(getCustomAttributesTime);
             Console.WriteLine(getAttributesTime);

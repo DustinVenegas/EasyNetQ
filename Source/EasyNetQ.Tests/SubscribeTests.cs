@@ -106,8 +106,8 @@ namespace EasyNetQ.Tests
             Assert.NotNull(subscriptionResult.Exchange);
             Assert.NotNull(subscriptionResult.Queue);
             Assert.NotNull(subscriptionResult.ConsumerCancellation);
-            Assert.IsTrue(subscriptionResult.Exchange.Name == typeName);
-            Assert.IsTrue(subscriptionResult.Queue.Name == queueName);
+            Assert.True(subscriptionResult.Exchange.Name == typeName);
+            Assert.True(subscriptionResult.Queue.Name == queueName);
         }
     }
 
