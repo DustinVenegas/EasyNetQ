@@ -29,7 +29,7 @@ namespace EasyNetQ.Tests.ProducerTests
             model.VerifyAllExpectations();
         }
 
-        [Test]
+        [Fact]
         public void Should_timeout_without_confirmation_event()
         {
             model.Expect(x => x.NextPublishSeqNo).Return(DeliveryTag);
@@ -40,7 +40,7 @@ namespace EasyNetQ.Tests.ProducerTests
             });
         }
 
-        [Test]
+        [Fact]
         public void Should_success_with_ack_confirmation_event()
         {
             model.Expect(x => x.NextPublishSeqNo).Return(DeliveryTag);
@@ -49,7 +49,7 @@ namespace EasyNetQ.Tests.ProducerTests
             publishConfirmationWaiter.Wait(TimeSpan.FromMilliseconds(10));
         }
 
-        [Test]
+        [Fact]
         public void Should_fail_with_nack_confirmation_event()
         {
             model.Expect(x => x.NextPublishSeqNo).Return(DeliveryTag);
@@ -58,7 +58,7 @@ namespace EasyNetQ.Tests.ProducerTests
             Assert.Throws<PublishNackedException>(() => publishConfirmationWaiter.Wait(TimeSpan.FromMilliseconds(10)));
         }
 
-        [Test]
+        [Fact]
         public void Should_success_with_multiple_ack_confirmation_event()
         {
             model.Expect(x => x.NextPublishSeqNo).Return(DeliveryTag - 1);
@@ -70,7 +70,7 @@ namespace EasyNetQ.Tests.ProducerTests
             publishConfirmationWaiter2.Wait(TimeSpan.FromMilliseconds(10));
         }
 
-        [Test]
+        [Fact]
         public void Should_fail_with_multiple_nack_confirmation_event()
         {
             model.Expect(x => x.NextPublishSeqNo).Return(DeliveryTag - 1);
@@ -82,7 +82,7 @@ namespace EasyNetQ.Tests.ProducerTests
             Assert.Throws<PublishNackedException>(() => publishConfirmationWaiter2.Wait(TimeSpan.FromMilliseconds(10)));
         }
 
-        [Test]
+        [Fact]
         public void Should_work_after_reconnection()
         {
             model.Expect(x => x.NextPublishSeqNo).Return(DeliveryTag).Repeat.Twice();

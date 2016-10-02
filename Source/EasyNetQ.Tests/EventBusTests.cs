@@ -16,7 +16,7 @@ namespace EasyNetQ.Tests
             eventBus = new EventBus();
         }
 
-        [Test]
+        [Fact]
         public void Should_be_able_to_get_subscribed_to_events()
         {
             Event1 capturedEvent = null;
@@ -34,7 +34,7 @@ namespace EasyNetQ.Tests
             capturedEvent.ShouldBeTheSameAs(publishedEvent);
         }
 
-        [Test]
+        [Fact]
         public void Should_not_get_events_not_subscribed_to()
         {
             Event1 capturedEvent = null;
@@ -51,7 +51,7 @@ namespace EasyNetQ.Tests
             capturedEvent.ShouldBeNull();
         }
 
-        [Test]
+        [Fact]
         public void Should_be_able_to_cancel_an_event()
         {
             var stringsPublished = new List<string>();
@@ -69,7 +69,7 @@ namespace EasyNetQ.Tests
             stringsPublished[0].ShouldEqual("Before cancellation");
         }
 
-        [Test]
+        [Fact]
         public void Should_handle_resubscription_from_handler()
         {
             Event1 eventFromSubscription = null;
@@ -90,7 +90,7 @@ namespace EasyNetQ.Tests
             eventFromSubscription.ShouldNotBeNull();
         }
 
-        [Test]
+        [Fact]
         public void Should_handle_cancelation_from_handler()
         {
             Event1 eventFromSubscription = null;

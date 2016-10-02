@@ -18,7 +18,7 @@ namespace EasyNetQ.Tests.ProducerTests
             mockBuilder = new MockBuilder();
         }
 
-        [Test]
+        [Fact]
         [ExpectedException(typeof(EasyNetQException))]
         public void Should_throw_an_EasyNetQException()
         {

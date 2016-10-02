@@ -7,13 +7,13 @@ namespace EasyNetQ.Tests.FluentConfiguration
     [TestFixture]
     public class PublishConfigurationTests
     {
-        [Test]
+        [Fact]
         public void Should_throw_if_default_topic_is_null()
         {
             Assert.That(() => new PublishConfiguration(null), Throws.InstanceOf<ArgumentNullException>());
         }
 
-        [Test]
+        [Fact]
         public void Should_return_default_topic()
         {
             var configuration = new PublishConfiguration("default");
@@ -23,7 +23,7 @@ namespace EasyNetQ.Tests.FluentConfiguration
             Assert.AreEqual(configuration.Topic, "default");
         }
 
-        [Test]
+        [Fact]
         public void Should_return_custom_topic()
         {
             var configuration = new PublishConfiguration("default");

@@ -32,7 +32,7 @@ namespace EasyNetQ.Tests.AutoSubscriberTests
             autoSubscriber.Subscribe(GetType().Assembly);
         }
 
-        [Test]
+        [Fact]
         public void Should_have_called_subscribe()
         {
             bus.AssertWasCalled(
@@ -43,7 +43,7 @@ namespace EasyNetQ.Tests.AutoSubscriberTests
 
         }
 
-        [Test]
+        [Fact]
         public void Should_have_called_subscribe_with_no_expires()
         {
             var subscriptionConfiguration = new SubscriptionConfiguration(1);

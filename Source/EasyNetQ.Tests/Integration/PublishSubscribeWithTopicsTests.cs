@@ -28,7 +28,7 @@ namespace EasyNetQ.Tests.Integration
             return new MyMessage { Text = "Hello! " + Guid.NewGuid().ToString().Substring(0, 5) };
         }
 
-        [Test, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
         public void Publish_some_messages_with_topics()
         {
             bus.Publish(CreateMessage(), "X.A");
@@ -36,7 +36,7 @@ namespace EasyNetQ.Tests.Integration
             bus.Publish(CreateMessage(), "Y.A");
         }
 
-        [Test, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
         public void Subscribe_to_messages_with_topics()
         {
             var countdownEvent = new CountdownEvent(7);
@@ -62,7 +62,7 @@ namespace EasyNetQ.Tests.Integration
             countdownEvent.Wait(1000);
         }
 
-        [Test, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
         public void Should_subscribe_to_multiple_topic_strings()
         {
             var countdownEvent = new CountdownEvent(7);
@@ -75,7 +75,7 @@ namespace EasyNetQ.Tests.Integration
             countdownEvent.Wait(500);
         }
 
-        [Test, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
         public void Publish_a_messages_without_a_topic()
         {
             bus.Publish(CreateMessage());

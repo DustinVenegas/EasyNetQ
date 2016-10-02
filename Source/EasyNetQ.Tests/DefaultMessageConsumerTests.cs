@@ -9,7 +9,7 @@ namespace EasyNetQ.Tests
     [TestFixture]
     public class DefaultMessageConsumerTests
     {
-        [Test]
+        [Fact]
         public void Should_create_consumer_instance_and_consume_message()
         {
             var consumer = new DefaultAutoSubscriberMessageDispatcher();

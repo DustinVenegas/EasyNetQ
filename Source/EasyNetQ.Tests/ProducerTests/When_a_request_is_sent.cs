@@ -43,13 +43,13 @@ namespace EasyNetQ.Tests.ProducerTests
             responseMessage = task.Result;
         }
 
-        [Test]
+        [Fact]
         public void Should_return_the_response()
         {
             responseMessage.Text.ShouldEqual("Hello World");
         }
 
-        [Test]
+        [Fact]
         public void Should_publish_request_message()
         {
             mockBuilder.Channels[0].AssertWasCalled(x => x.BasicPublish(
@@ -60,7 +60,7 @@ namespace EasyNetQ.Tests.ProducerTests
                 Arg<byte[]>.Is.Anything));
         }
 
-        [Test]
+        [Fact]
         public void Should_declare_the_publish_exchange()
         {
             mockBuilder.Channels[0].AssertWasCalled(x => x.ExchangeDeclare(
@@ -71,7 +71,7 @@ namespace EasyNetQ.Tests.ProducerTests
                 Arg<IDictionary<string, object>>.Is.Anything));
         }
 
-        [Test]
+        [Fact]
         public void Should_declare_the_response_queue()
         {
             mockBuilder.Channels[0].AssertWasCalled(x => x.QueueDeclare(

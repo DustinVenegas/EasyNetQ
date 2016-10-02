@@ -13,7 +13,7 @@ namespace EasyNetQ.Tests
     [TestFixture]
     public class PersistentConnectionTests
     {
-        [Test]
+        [Fact]
         public void If_connects_after_disposal_should_redispose_underlying_connection()
         {
             var logger = MockRepository.GenerateMock<IEasyNetQLogger>();

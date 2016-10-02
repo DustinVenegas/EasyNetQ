@@ -35,20 +35,20 @@ namespace EasyNetQ.Tests.Integration
             connection.Dispose();
         }
 
-        [Test]
+        [Fact]
         public void Should_be_able_to_run_channel_actions()
         {
             persistentChannel.InvokeChannelAction(x => x.ExchangeDeclare("myExchange", "direct"));
         }
 
-        [Test]
+        [Fact]
         public void Should_allow_non_disconnect_Amqp_exception_to_bubble_up()
         {
             // run test above first
             persistentChannel.InvokeChannelAction(x => x.ExchangeDeclare("myExchange", "topic"));
         }
 
-        [Test]
+        [Fact]
         public void Should_reconnect_if_connection_goes_away()
         {
             Helpers.CloseConnection();

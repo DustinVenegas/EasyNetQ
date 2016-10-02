@@ -33,7 +33,7 @@ namespace EasyNetQ.Tests.ProducerTests
                        });
         }
 
-        [Test]
+        [Fact]
         [ExpectedException(ExpectedException = typeof(EasyNetQResponderException))]
         public void Should_throw_an_EasyNetQResponderException()
         {
@@ -49,7 +49,7 @@ namespace EasyNetQ.Tests.ProducerTests
             }
         }
 
-        [Test]
+        [Fact]
         [ExpectedException(ExpectedException = typeof(EasyNetQResponderException), ExpectedMessage = "Why you are so bad with me?")]
         public void Should_throw_an_EasyNetQResponderException_with_a_specific_exception_message()
         {

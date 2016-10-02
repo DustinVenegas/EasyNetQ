@@ -42,7 +42,7 @@ namespace EasyNetQ.Tests.AutoSubscriberTests
             autoSubscriber.Subscribe(GetType().Assembly);
         }
 
-        [Test]
+        [Fact]
         public void Should_have_called_subscribe()
         {
             bus.AssertWasCalled(
@@ -53,7 +53,7 @@ namespace EasyNetQ.Tests.AutoSubscriberTests
 
         }
 
-        [Test]
+        [Fact]
         public void Should_have_called_subscribe_with_action_capable_of_configuring_subscription()
         {
             var subscriptionConfiguration = new SubscriptionConfiguration(1);

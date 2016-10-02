@@ -10,7 +10,7 @@ namespace EasyNetQ.Tests.Scheduling
     [TestFixture]
     public class InterceptionExtensionsTests : UnitTestBase
     {
-        [Test]
+        [Fact]
         public void When_using_EnableDelayedExchangeScheduler_extension_method_required_services_are_registered()
         {
             var serviceRegister = NewMock<IServiceRegister>();
@@ -18,7 +18,7 @@ namespace EasyNetQ.Tests.Scheduling
             serviceRegister.EnableDelayedExchangeScheduler();
         }
 
-        [Test]
+        [Fact]
         public void When_using_EnableDeadLetterExchangeAndMessageTtlScheduler_extension_method_required_services_are_registered()
         {
             var serviceRegister = NewMock<IServiceRegister>();

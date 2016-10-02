@@ -23,7 +23,7 @@ namespace EasyNetQ.Tests.ConnectionString
             connectionStringParser = new ConnectionStringParser();
         }
 
-        [Test]
+        [Fact]
         public void Should_correctly_parse_connection_string()
         {
             var connectionConfiguration = connectionStringParser.Parse(connectionString);
@@ -40,7 +40,7 @@ namespace EasyNetQ.Tests.ConnectionString
             connectionConfiguration.CancelOnHaFailover.ShouldBeTrue();
         }
 
-        [Test]
+        [Fact]
         public void Should_parse_global_timeout()
         {
             const string connectionStringWithTimeout = "host=localhost;timeout=13";
@@ -49,7 +49,7 @@ namespace EasyNetQ.Tests.ConnectionString
             connectionConfiguration.Timeout.ShouldEqual(13);
         }
 
-        [Test]
+        [Fact]
         public void Should_parse_global_persistentMessages()
         {
             const string connectionStringWithPersistenMessages = "host=localhost;persistentMessages=false";
@@ -58,19 +58,19 @@ namespace EasyNetQ.Tests.ConnectionString
             connectionConfiguration.PersistentMessages.ShouldBeFalse();
         }
 
-        [Test]
+        [Fact]
         public void Should_Throw_Exception_OnInvalidAmqp()
         {
             Assert.That(() => connectionStringParser.Parse("amqp=Foo"), Throws.InstanceOf<EasyNetQException>());
         }
 
-        [Test]
+        [Fact]
         public void Should_throw_exception_for_unknown_key_at_the_beginning()
         {
             Assert.That(() => connectionStringParser.Parse("unknownKey=true"), Throws.InstanceOf<EasyNetQException>());
         }
 
-        [Test]
+        [Fact]
         public void Should_throw_exception_for_unknown_key_at_the_end()
         {
             Assert.That(() => connectionStringParser.Parse("host=localhost;unknownKey=true"), Throws.InstanceOf<EasyNetQException>());
@@ -97,7 +97,7 @@ namespace EasyNetQ.Tests.ConnectionString
             yield return new AmqpSpecification(new Uri("amqps://host"), "host", 5672);
         }
 
-        [Test]
+        [Fact]
         public void Should_UsePort_From_ConnectionString()
         {
             ConnectionConfiguration connectionConfiguration = connectionStringParser.Parse("amqp=amqp://host/;port=123");
@@ -105,7 +105,7 @@ namespace EasyNetQ.Tests.ConnectionString
             connectionConfiguration.Port.ShouldEqual(123);
         }
 
-        [Test]
+        [Fact]
         public void Should_NotUsePort_From_ConnectionString()
         {
             ConnectionConfiguration connectionConfiguration = connectionStringParser.Parse("amqp=amqp://host:1234/");
@@ -113,7 +113,7 @@ namespace EasyNetQ.Tests.ConnectionString
             connectionConfiguration.Port.ShouldEqual(1234);
         }
 
-        [Test]
+        [Fact]
         public void Should_AddHost_ToHosts()
         {
             ConnectionConfiguration connectionConfiguration = connectionStringParser.Parse("host=local;amqp=amqp://amqphost:1234/");

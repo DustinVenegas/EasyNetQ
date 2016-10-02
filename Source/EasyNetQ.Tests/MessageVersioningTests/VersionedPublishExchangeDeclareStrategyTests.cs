@@ -12,7 +12,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
     [TestFixture]
     public class VersionedPublishExchangeDeclareStrategyTests
     {
-        [Test]
+        [Fact]
         public void Should_declare_exchange_again_if_first_attempt_failed()
         {
             var exchangeDeclareCount = 0;
@@ -49,7 +49,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
 
         // Unversioned message - exchange declared
         // Versioned message - superceded exchange declared, then superceding, then bind
-        [Test]
+        [Fact]
         public void When_declaring_exchanges_for_unversioned_message_one_exchange_created()
         {
             var exchanges = new List<ExchangeStub>();
@@ -64,7 +64,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             Assert.That( exchanges[ 0 ].BoundTo, Is.Null, "Unversioned message should not create any exchange to exchange bindings" );
         }
 
-        [Test]
+        [Fact]
         public void When_declaring_exchanges_for_versioned_message_exchange_per_version_created_and_bound_to_superceding_version()
         {
             var exchanges = new List<ExchangeStub>();

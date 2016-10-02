@@ -16,7 +16,7 @@ namespace EasyNetQ.Tests.PersistentConsumerTests
             eventBus.Publish(new ConnectionCreatedEvent());
         }
 
-        [Test]
+        [Fact]
         public void Should_re_create_internal_consumer()
         {
             internalConsumerFactory.AssertWasCalled(x => x.CreateConsumer());

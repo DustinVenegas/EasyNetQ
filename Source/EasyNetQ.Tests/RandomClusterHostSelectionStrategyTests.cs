@@ -24,7 +24,7 @@ namespace EasyNetQ.Tests
             hosts = new HashSet<string>();
         }
 
-        [Test]
+        [Fact]
         public void Should_end_after_every_item_has_been_returned()
         {
             do
@@ -40,7 +40,7 @@ namespace EasyNetQ.Tests
             clusterHostSelectionStrategy.Succeeded.ShouldBeFalse();
         }
 
-        [Test]
+        [Fact]
         public void Should_forget_success_after_reset()
         {
             do
@@ -53,7 +53,7 @@ namespace EasyNetQ.Tests
             clusterHostSelectionStrategy.Succeeded.ShouldBeFalse();
         }
 
-        [Test]
+        [Fact]
         public void Should_end_once_success_is_called()
         {
             var count = 0;

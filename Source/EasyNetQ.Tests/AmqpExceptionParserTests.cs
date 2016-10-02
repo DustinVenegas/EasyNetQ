@@ -8,7 +8,7 @@ namespace EasyNetQ.Tests
     [TestFixture]
     public class AmqpExceptionParserTests
     {
-        [Test]
+        [Fact]
         public void Should_parse_first_Amqp_exception_example()
         {
             const string originalException =
@@ -23,7 +23,7 @@ namespace EasyNetQ.Tests
             amqpException.ClassId.ShouldEqual(0);
         }
 
-        [Test]
+        [Fact]
         public void Should_parse_second_Amqp_exception_example()
         {
             const string originalException =
@@ -39,7 +39,7 @@ namespace EasyNetQ.Tests
             amqpException.ClassId.ShouldEqual(40);
         }
 
-        [Test]
+        [Fact]
         [ExpectedException(typeof(Sprache.ParseException))]
         public void Should_fail_on_badly_formatted_exception()
         {

@@ -44,7 +44,7 @@ namespace EasyNetQ.Tests.PersistentChannelTests
 
         }
 
-        [Test]
+        [Fact]
         [ExpectedException(typeof(TimeoutException))]
         public void Should_throw_timeout_exception()
         {

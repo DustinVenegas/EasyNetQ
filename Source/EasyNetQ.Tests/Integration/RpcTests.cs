@@ -32,7 +32,7 @@ namespace EasyNetQ.Tests.Integration
             bus.Dispose();
         }
 
-        [Test]
+        [Fact]
         public void Should_be_able_to_publish_and_receive_response()
         {
             bus.Respond<RpcRequest, RpcResponse>(req => new RpcResponse { Value = req.Value });
@@ -43,7 +43,7 @@ namespace EasyNetQ.Tests.Integration
             Assert.IsTrue(request.Value == response.Value);
         }
 
-        [Test]
+        [Fact]
         [ExpectedException(typeof(EasyNetQException))]
         public void Should_throw_when_requesting_over_long_message()
         {
@@ -56,7 +56,7 @@ namespace EasyNetQ.Tests.Integration
             Thread.Sleep(2000);
         }
 
-        [Test]
+        [Fact]
         [ExpectedException(typeof(EasyNetQException))]
         public void Should_throw_when_responding_to_over_long_message()
         {

@@ -23,13 +23,13 @@ namespace EasyNetQ.Tests.ConsumeTests
         }
 
 
-        [Test]
+        [Fact]
         public void Should_ack_message()
         {
             model.VerifyAllExpectations();
         }
 
-        [Test]
+        [Fact]
         public void Should_return_Ack()
         {
             Assert.AreEqual(AckResult.Ack, result);
@@ -53,13 +53,13 @@ namespace EasyNetQ.Tests.ConsumeTests
         }
 
 
-        [Test]
+        [Fact]
         public void Should_nack_message_and_not_requeue()
         {
             model.VerifyAllExpectations();   
         }
 
-        [Test]
+        [Fact]
         public void Should_return_Nack()
         {
             Assert.AreEqual(AckResult.Nack, result);
@@ -83,13 +83,13 @@ namespace EasyNetQ.Tests.ConsumeTests
         }
 
 
-        [Test]
+        [Fact]
         public void Should_nack_message_and_requeue()
         {
             model.VerifyAllExpectations();
         }
 
-        [Test]
+        [Fact]
         public void Should_return_Nack()
         {
             Assert.AreEqual(AckResult.Nack, result);
@@ -111,13 +111,13 @@ namespace EasyNetQ.Tests.ConsumeTests
             result = AckStrategies.Nothing(model, deliveryTag);
         }
 
-        [Test]
+        [Fact]
         public void Should_have_no_interaction_with_model()
         {
             model.VerifyAllExpectations();
         }
 
-        [Test]
+        [Fact]
         public void Should_return_Nothing()
         {
             Assert.AreEqual(AckResult.Nothing, result);

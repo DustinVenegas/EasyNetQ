@@ -6,7 +6,7 @@ namespace EasyNetQ.Tests.Internals
     [TestFixture]
     public class AsyncSemaphoreTest
     {
-        [Test]
+        [Fact]
         public void TestWaitRelease()
         {
             var semaphore = new AsyncSemaphore(1);

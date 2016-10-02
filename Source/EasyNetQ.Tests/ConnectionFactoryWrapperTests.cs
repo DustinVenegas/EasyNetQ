@@ -22,7 +22,7 @@ namespace EasyNetQ.Tests
             clusterSelectionStrategy = new RandomClusterHostSelectionStrategy<ConnectionFactoryInfo>();
         }
 
-        [Test]
+        [Fact]
         public void Should_set_Port_And_HostName_When_Specified()
         {
             InitConnectionFactoryWrapper(amqpConnectionString);
@@ -33,7 +33,7 @@ namespace EasyNetQ.Tests
             connectionFactory.Endpoint.HostName.ShouldEqual(amqpConnectionString.Host);
         }
 
-        [Test]
+        [Fact]
         public void Should_set_Post_as_in_amqp_When_Specified_in_config()
         {
             InitConnectionFactoryWrapper(amqpConnectionString);
@@ -42,7 +42,7 @@ namespace EasyNetQ.Tests
             connectionFactory.Endpoint.Port.ShouldEqual(amqpConnectionString.Port);
         }
 
-        [Test]
+        [Fact]
         public void Should_set_AMQP_UserName_And_Password_When_Specified()
         {
             InitConnectionFactoryWrapper(amqpConnectionString);
@@ -52,7 +52,7 @@ namespace EasyNetQ.Tests
             connectionFactory.Password.ShouldEqual(Password);
         }
 
-        [Test]
+        [Fact]
         public void Should_set_SslOption()
         {
             InitConnectionFactoryWrapper(amqpSecureConnectionString);
@@ -62,7 +62,7 @@ namespace EasyNetQ.Tests
             amqpTcpEndpoint.Ssl.AcceptablePolicyErrors.ShouldEqual(SslPolicyErrors.RemoteCertificateNameMismatch);
         }
 
-        [Test]
+        [Fact]
         public void Should_preserve_VirtualHost_if_specified_by_amqp()
         {
             var vhost = "12345";
@@ -71,7 +71,7 @@ namespace EasyNetQ.Tests
             clusterSelectionStrategy.Current().ConnectionFactory.VirtualHost.ShouldEqual(vhost);
         }
         
-        [Test]
+        [Fact]
         public void Should_preserve_UserName_if_specified_by_amqp()
         {
             var userbla = "userDelta";
@@ -80,7 +80,7 @@ namespace EasyNetQ.Tests
             clusterSelectionStrategy.Current().ConnectionFactory.UserName.ShouldEqual(userbla);
         }
 
-        [Test]
+        [Fact]
         public void Should_preserve_Password_if_specified_by_amqp()
         {
             var pass = "passDelta";
@@ -89,7 +89,7 @@ namespace EasyNetQ.Tests
             clusterSelectionStrategy.Current().ConnectionFactory.Password.ShouldEqual(pass);
         }
 
-        [Test]
+        [Fact]
         public void Should_preserve_Port_if_specified_by_amqp()
         {
             var port = "17325";

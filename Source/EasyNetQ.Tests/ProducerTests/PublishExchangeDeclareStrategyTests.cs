@@ -14,7 +14,7 @@ namespace EasyNetQ.Tests.ProducerTests
     {
         private const string exchangeName = "the_exchange";
 
-        [Test]
+        [Fact]
         public void Should_declare_exchange_the_first_time_declare_is_called()
         {
             var exchangeDeclareCount = 0;
@@ -34,7 +34,7 @@ namespace EasyNetQ.Tests.ProducerTests
             exchangeDeclareCount.ShouldEqual(1);
         }
 
-        [Test]
+        [Fact]
         public void Should_not_declare_exchange_the_second_time_declare_is_called()
         {
             var exchangeDeclareCount = 0;
@@ -54,7 +54,7 @@ namespace EasyNetQ.Tests.ProducerTests
             exchangeDeclareCount.ShouldEqual(1);
         }
 
-        [Test]
+        [Fact]
         public void Should_declare_exchange_again_if_first_attempt_failed()
         {
             var exchangeDeclareCount = 0;

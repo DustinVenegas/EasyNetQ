@@ -12,7 +12,7 @@ namespace EasyNetQ.Tests.Interception
     {
         
 
-        [Test]
+        [Fact]
         public void When_using_EnableInterception_extension_method_required_services_are_registered()
         {
             var serviceRegister = NewMock<IServiceRegister>();
@@ -20,7 +20,7 @@ namespace EasyNetQ.Tests.Interception
             serviceRegister.EnableInterception(x => { });
         }
 
-        [Test]
+        [Fact]
         public void When_using_EnableGZipCompression_extension_method_required_interceptor_is_added()
         {
             var interceptorRegistrator = NewMock<IInterceptorRegistrator>();
@@ -29,7 +29,7 @@ namespace EasyNetQ.Tests.Interception
         }
 
 
-        [Test]
+        [Fact]
         public void When_using_EnableTripleDESEncryption_extension_method_required_interceptor_is_added()
         {
             var interceptorRegistrator = NewMock<IInterceptorRegistrator>();

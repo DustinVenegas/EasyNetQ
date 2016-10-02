@@ -12,7 +12,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
         private const string AlternativeMessageTypesHeaderKey = "Alternative-Message-Types";
 
         // All types missing - GetType == exception
-        [Test]
+        [Fact]
         public void GetMessageType_returns_message_type_for_an_unversioned_message()
         {
             var typeNameSerialiser = new TypeNameSerializer();
@@ -22,7 +22,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             Assert.That( messageType.Type, Is.EqualTo( typeof( MyMessage ) ) );
         }
 
-        [Test]
+        [Fact]
         public void AppendTo_sets_message_type_and_no_alternatives_for_an_unversioned_message()
         {
             var typeNameSerialiser = new TypeNameSerializer();
@@ -35,7 +35,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             Assert.That( properties.Headers.ContainsKey( AlternativeMessageTypesHeaderKey ), Is.False );
         }
 
-        [Test]
+        [Fact]
         public void GetMessageType_returns_message_type_for_a_versioned_message()
         {
             var typeNameSerialiser = new TypeNameSerializer();
@@ -45,7 +45,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             Assert.That( messageType.Type, Is.EqualTo( typeof( MyMessageV2 ) ) );
         }
 
-        [Test]
+        [Fact]
         public void AppendTo_sets_message_type_and_alternatives_for_a_versioned_message()
         {
             var typeNameSerialiser = new TypeNameSerializer();
@@ -58,7 +58,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             Assert.That( properties.Headers[ AlternativeMessageTypesHeaderKey ], Is.EqualTo( typeNameSerialiser.Serialize( typeof( MyMessage ) ) ) );
         }
 
-        [Test]
+        [Fact]
         public void MessageTypeProperty_is_created_correctly_from_message_properties_for_unversioned_message()
         {
             var typeNameSerialiser = new TypeNameSerializer();
@@ -70,7 +70,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             Assert.That( messageType.Type, Is.EqualTo( typeof( MyMessage ) ) );
         }
 
-        [Test]
+        [Fact]
         public void MessageTypeProperty_is_created_correctly_from_message_properties_for_versioned_message()
         {
             var typeNameSerialiser = new TypeNameSerializer();
@@ -84,7 +84,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             Assert.That( messageType.Type, Is.EqualTo( typeof( MyMessageV2 ) ) );
         }
 
-        [Test]
+        [Fact]
         public void GetType_returns_first_available_alternative_if_message_type_unavailable()
         {
             var typeNameSerialiser = new TypeNameSerializer();
@@ -103,7 +103,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             Assert.That( messageType.Type, Is.EqualTo( typeof( MyMessageV2 ) ) );
         }
 
-        [Test]
+        [Fact]
         public void GetType_returns_first_available_alternative_if_message_type_and_some_alternatives_unavailable()
         {
             var typeNameSerialiser = new TypeNameSerializer();
@@ -123,7 +123,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             Assert.That( messageType.Type, Is.EqualTo( typeof( MyMessageV2 ) ) );
         }
 
-        [Test]
+        [Fact]
         public void GetType_throws_exception_if_all_types_unavailable()
         {
             var typeNameSerialiser = new TypeNameSerializer();

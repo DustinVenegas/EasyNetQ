@@ -25,7 +25,7 @@ namespace EasyNetQ.Tests
             writer = new StringWriter();
         }
 
-        [Test]
+        [Fact]
         public void Should_end_after_every_item_has_been_returned()
         {
             do
@@ -38,7 +38,7 @@ namespace EasyNetQ.Tests
             defaultClusterHostSelectionStrategy.Succeeded.ShouldBeFalse();
         }
 
-        [Test]
+        [Fact]
         public void Should_end_once_success_is_called()
         {
             var count = 0;
@@ -56,7 +56,7 @@ namespace EasyNetQ.Tests
             defaultClusterHostSelectionStrategy.Succeeded.ShouldBeTrue();
         }
 
-        [Test]
+        [Fact]
         public void Should_restart_from_next_item_and_then_try_all()
         {
             for (var i = 0; i < 10; i++)

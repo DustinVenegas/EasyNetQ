@@ -30,7 +30,7 @@ namespace EasyNetQ.Tests.ProducerTests
                     });
         }
 
-        [Test]
+        [Fact]
         public void Should_try_to_reconnect_until_timeout()
         {
             try

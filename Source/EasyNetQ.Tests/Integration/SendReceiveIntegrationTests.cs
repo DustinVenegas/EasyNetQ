@@ -24,7 +24,7 @@ namespace EasyNetQ.Tests.Integration
             bus.Dispose();
         }
 
-        [Test]
+        [Fact]
         public void Should_be_able_to_send_and_receive_messages()
         {
             const string queue = "send_receive_test";
@@ -39,7 +39,7 @@ namespace EasyNetQ.Tests.Integration
             Thread.Sleep(500);
         }
 
-        [Test]
+        [Fact]
         public void Should_be_able_to_handle_a_long_running_consumer()
         {
             const string queue = "send_receive_test";

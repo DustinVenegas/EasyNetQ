@@ -32,7 +32,7 @@ namespace EasyNetQ.Tests.ConsumeTests
             are.WaitOne(500);
         }
 
-        [Test]
+        [Fact]
         public void Should_dispose_of_the_model()
         {
             mockBuilder.Consumers[0].Model.AssertWasCalled(x => x.Dispose());

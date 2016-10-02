@@ -31,21 +31,21 @@ namespace EasyNetQ.Tests.ConsumeTests
             DeliverMessage("{ Text: \"Shoudn't get this\" }", "EasyNetQ.Tests.Unknown:EasyNetQ.Tests");
         }
 
-        [Test]
+        [Fact]
         public void Should_deliver_MyMessage()
         {
             deliveredMyMessage.ShouldNotBeNull();
             deliveredMyMessage.Text.ShouldEqual("Hello World :)");
         }
 
-        [Test]
+        [Fact]
         public void Should_deliver_MyOtherMessage()
         {
             deliveredMyOtherMessage.ShouldNotBeNull();
             deliveredMyOtherMessage.Text.ShouldEqual("Goodbye Cruel World!");
         }
 
-        [Test]
+        [Fact]
         public void Should_put_unrecognised_message_on_error_queue()
         {
             mockBuilder.Logger.AssertWasCalled(x => x.ErrorWrite(

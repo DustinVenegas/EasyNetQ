@@ -10,7 +10,7 @@ namespace EasyNetQ.Tests
     [TestFixture]
     public class DefaultMessageSerializationStrategyTests
     {
-        [Test]
+        [Fact]
         public void When_using_the_default_serialization_strategy_messages_are_correctly_serialized()
         {
             const string messageType = "MyMessageTypeName";
@@ -25,7 +25,7 @@ namespace EasyNetQ.Tests
             AssertMessageSerializedCorrectly(serializedMessage, serializedMessageBody, messageType, correlationId);
         }
 
-        [Test]
+        [Fact]
         public void When_serializing_a_message_with_a_correlationid_it_is_not_overwritten()
         {
             const string messageType = "MyMessageTypeName";
@@ -43,7 +43,7 @@ namespace EasyNetQ.Tests
             AssertMessageSerializedCorrectly(serializedMessage, serializedMessageBody, messageType, correlationId);
         }
 
-        [Test]
+        [Fact]
         public void When_using_the_default_serialization_strategy_messages_are_correctly_deserialized()
         {
             const string messageType = "MyMessageTypeName";
@@ -67,7 +67,7 @@ namespace EasyNetQ.Tests
             AssertMessageDeserializedCorrectly((Message<MyMessage>)deserializedMessage, messageContent, typeof(MyMessage), message.Properties.ToString());
         }
 
-        [Test]
+        [Fact]
         public void When_using_the_default_serialization_strategy_messages_are_correctly_round_tripped()
         {
             var typeNameSerializer = new TypeNameSerializer();

@@ -14,7 +14,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
     {
         private const string AlternativeMessageTypesHeaderKey = "Alternative-Message-Types";
 
-        [Test]
+        [Fact]
         public void When_using_the_versioned_serialization_strategy_messages_are_correctly_serialized()
         {
             const string messageType = "MyMessageTypeName";
@@ -30,7 +30,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             AssertMessageSerializedCorrectly(serializedMessage, serializedMessageBody, p => AssertDefaultMessagePropertiesCorrect(p, messageType, correlationId));
         }
 
-        [Test]
+        [Fact]
         public void When_serializing_a_message_with_a_correlationid_it_is_not_overwritten()
         {
             const string messageType = "MyMessageTypeName";
@@ -49,7 +49,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             AssertMessageSerializedCorrectly(serializedMessage, serializedMessageBody, p => AssertDefaultMessagePropertiesCorrect(p, messageType, correlationId));
         }
 
-        [Test]
+        [Fact]
         public void When_using_the_versioned_serialization_strategy_messages_are_correctly_deserialized()
         {
             const string messageType = "MyMessageTypeName";
@@ -75,7 +75,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             Assert.That(deserializedMessage.Properties.UserId, Is.EqualTo(message.Properties.UserId), "Additional message properties not serialised");
         }
 
-        [Test]
+        [Fact]
         public void When_using_the_versioned_serialization_strategy_messages_are_correctly_round_tripped()
         {
             var typeNameSerializer = new TypeNameSerializer();
@@ -94,7 +94,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             Assert.That(((Message<MyMessage>)deserializedMessage).Body.Text, Is.EqualTo(message.Body.Text));
         }
 
-        [Test]
+        [Fact]
         public void When_using_the_versioned_serialization_strategy_versioned_messages_are_correctly_serialized()
         {
             const string messageType = "MyMessageV2TypeName";
@@ -115,7 +115,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             AssertMessageSerializedCorrectly(serializedMessage, serializedMessageBody, p => AssertVersionedMessagePropertiesCorrect(p, messageType, correlationId, supersededMessageType));
         }
 
-        [Test]
+        [Fact]
         public void When_serializing_a_versioned_message_with_a_correlationid_it_is_not_overwritten()
         {
             const string messageType = "MyMessageV2TypeName";
@@ -139,7 +139,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             AssertMessageSerializedCorrectly(serializedMessage, serializedMessageBody, p => AssertVersionedMessagePropertiesCorrect(p, messageType, correlationId, supersededMessageType));
         }
 
-        [Test]
+        [Fact]
         public void When_using_the_versioned_serialization_strategy_versioned_messages_are_correctly_deserialized()
         {
             const string messageType = "MyMessageV2TypeName";
@@ -170,7 +170,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             AssertMessageDeserializedCorrectly((Message<MyMessageV2>)deserializedMessage, messageContent, typeof(MyMessageV2), p => AssertVersionedMessagePropertiesCorrect(p, messageType, correlationId, supersededMessageType));
         }
 
-        [Test]
+        [Fact]
         public void When_using_the_versioned_serialization_strategy_versioned_messages_are_correctly_round_tripped()
         {
             var typeNameSerializer = new TypeNameSerializer();
@@ -194,7 +194,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             Assert.That(((Message<MyMessageV2>)deserializedMessage).Body.Number, Is.EqualTo(message.Body.Number));
         }
 
-        [Test]
+        [Fact]
         public void When_deserializing_versioned_message_use_first_available_message_type()
         {
             var typeNameSerializer = new TypeNameSerializer();

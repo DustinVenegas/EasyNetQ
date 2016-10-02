@@ -15,7 +15,7 @@ namespace EasyNetQ.Tests.Integration
             bus.Dispose();
         }
 
-        [Test]
+        [Fact]
         public void Should_be_able_to_declare_exchange_during_first_on_connected_event()
         {
             var advancedBusEventHandlers = new AdvancedBusEventHandlers(connected: (s, e) =>
@@ -26,7 +26,7 @@ namespace EasyNetQ.Tests.Integration
             bus = RabbitHutch.CreateBus("host=localhost", advancedBusEventHandlers);
         }
 
-        [Test]
+        [Fact]
         public void Should_be_able_to_declare_queue_during_first_on_connected_event()
         {
             var advancedBusEventHandlers = new AdvancedBusEventHandlers(connected: (s, e) =>
@@ -37,7 +37,7 @@ namespace EasyNetQ.Tests.Integration
             bus = RabbitHutch.CreateBus("host=localhost", advancedBusEventHandlers);
         }
 
-        [Test]
+        [Fact]
         public void Should_be_able_to_public_message_during_first_on_connected_event()
         {
             var advancedBusEventHandlers = new AdvancedBusEventHandlers(connected: (s, e) =>

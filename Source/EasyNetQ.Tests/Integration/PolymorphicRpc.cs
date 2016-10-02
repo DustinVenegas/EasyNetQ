@@ -25,7 +25,7 @@ namespace EasyNetQ.Tests.Integration
             bus.Dispose();
         }
 
-        [Test]
+        [Fact]
         public void Should_request_some_animals()
         {
             var cat = new Cat
@@ -44,7 +44,7 @@ namespace EasyNetQ.Tests.Integration
             bus.RequestAsync<IAnimal, IAnimal>(dog);
         }
 
-        [Test]
+        [Fact]
         public void Should_request_respond_with_correct_message_types()
         {
             bus.Respond<IAnimal, IAnimal>(@interface =>

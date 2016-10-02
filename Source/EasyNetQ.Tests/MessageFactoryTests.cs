@@ -6,7 +6,7 @@ namespace EasyNetQ.Tests
     [TestFixture]
     public class MessageFactoryTests
     {
-        [Test]
+        [Fact]
         public void Should_correctly_create_generic_message()
         {
             var message = new MyMessage { Text = "Hello World" };
@@ -30,7 +30,7 @@ namespace EasyNetQ.Tests
             Assert.IsTrue(genericMessageWithProperties.CastTo<Message<MyMessage>>().Properties.CorrelationId == properties.CorrelationId);
         }
 
-        [Test]
+        [Fact]
         public void Should_fail_to_create_generic_message_with_null_argument()
         {
             Assert.Throws<ArgumentNullException>(() => MessageFactory.CreateInstance(typeof(MyMessage), null));

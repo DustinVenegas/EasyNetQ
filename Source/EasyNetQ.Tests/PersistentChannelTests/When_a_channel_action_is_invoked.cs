@@ -32,19 +32,19 @@ namespace EasyNetQ.Tests.PersistentChannelTests
             persistentChannel.InvokeChannelAction(x => x.ExchangeDeclare("MyExchange", "direct"));
         }
 
-        [Test]
+        [Fact]
         public void Should_open_a_channel()
         {
             persistentConnection.AssertWasCalled(x => x.CreateModel());
         }
 
-        [Test]
+        [Fact]
         public void Should_run_action_on_channel()
         {
             channel.AssertWasCalled(x => x.ExchangeDeclare("MyExchange", "direct"));
         }
 
-        [Test]
+        [Fact]
         public void Should_raise_a_PublishChannelCreatedEvent()
         {
             eventBus.AssertWasCalled(x => x.Publish(Arg<PublishChannelCreatedEvent>.Is.Anything));

@@ -48,7 +48,7 @@ namespace EasyNetQ.Tests.ConsumeTests
             are.WaitOne(1000);
         }
 
-        [Test]
+        [Fact]
         public void Should_correctly_deserialize_message()
         {
             receivedMessage.ShouldNotBeNull();

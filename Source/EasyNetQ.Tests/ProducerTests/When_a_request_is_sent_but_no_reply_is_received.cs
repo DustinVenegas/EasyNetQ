@@ -17,7 +17,7 @@ namespace EasyNetQ.Tests.ProducerTests
             mockBuilder = new MockBuilder("host=localhost;timeout=1");
         }
 
-        [Test]
+        [Fact]
         [ExpectedException(typeof(TimeoutException))]
         public void Should_throw_a_timeout_exception()
         {

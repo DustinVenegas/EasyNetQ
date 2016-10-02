@@ -8,7 +8,7 @@ namespace EasyNetQ.Tests
     [TestFixture]
     public class ReflectionHelpersTests
     {
-        [Test]
+        [Fact]
         public void ShouldCreateClassWithDefaultConstructor()
         {
             var obj = ReflectionHelpers.CreateInstance<ClassWithDefaultConstuctor>();
@@ -16,14 +16,14 @@ namespace EasyNetQ.Tests
             Assert.IsTrue(obj.GetType() == typeof(ClassWithDefaultConstuctor));
         }
 
-        [Test]
+        [Fact]
         [ExpectedException(typeof(MissingMethodException))]
         public void ShouldFailToCreateClassWithoutDefaultConstructor()
         {
             ReflectionHelpers.CreateInstance<ClassWithoutDefaultConstuctor>();
         }
 
-        [Test, Explicit("Fails on build server.")]
+        [Fact, Explicit("Fails on build server.")]
         public void ShouldPerformFasterThanActivator()
         {
             // warmup
@@ -56,7 +56,7 @@ namespace EasyNetQ.Tests
             Assert.AreEqual(2000000, count);
         }
 
-        [Test]
+        [Fact]
         public void ShouldCreateClassWithSingleParameterConstructor()
         {
             var obj = ReflectionHelpers.CreateInstance(typeof(ClassWithOneParameterConstructor), 1);
@@ -64,14 +64,14 @@ namespace EasyNetQ.Tests
             Assert.IsTrue(obj.GetType() == typeof(ClassWithOneParameterConstructor));
         }
 
-        [Test]
+        [Fact]
         [ExpectedException(typeof(MissingMethodException))]
         public void ShouldFailToCreateClassWithoutSingleParameterConstructor()
         {
             ReflectionHelpers.CreateInstance(typeof(ClassWithDefaultConstuctor), 1);
         }
 
-        [Test, Explicit("Fails on build server.")]
+        [Fact, Explicit("Fails on build server.")]
         public void ShouldPerformFasterThanActivatorSingleParameter()
         {
             // warmup
@@ -106,7 +106,7 @@ namespace EasyNetQ.Tests
             Assert.AreEqual(2000000, count);
         }
 
-        [Test]
+        [Fact]
         public void ShouldCreateClassWithDualParameterConstructor()
         {
             var obj = ReflectionHelpers.CreateInstance(typeof(ClassWithTwoParametersConstructor), 1, 2);
@@ -114,14 +114,14 @@ namespace EasyNetQ.Tests
             Assert.IsTrue(obj.GetType() == typeof(ClassWithTwoParametersConstructor));
         }
 
-        [Test]
+        [Fact]
         [ExpectedException(typeof(MissingMethodException))]
         public void ShouldFailToCreateClassWithoutDualParameterConstructor()
         {
             ReflectionHelpers.CreateInstance(typeof(ClassWithDefaultConstuctor), 1, 2);
         }
 
-        [Test, Explicit("Fails on build server.")]
+        [Fact, Explicit("Fails on build server.")]
         public void ShouldPerformFasterThanActivatorDualParameter()
         {
             // warmup
@@ -156,14 +156,14 @@ namespace EasyNetQ.Tests
             Assert.AreEqual(6000000, count);
         }
 
-        [Test]
+        [Fact]
         public void ShouldGetAttributes()
         {
             Assert.IsTrue(typeof(TestAttributedClass).GetAttributes<OneTestAttribute>().Any());
             Assert.IsTrue(typeof(TestAttributedClass).GetAttributes<AnotherTestAttribute>().Any());
         }
 
-        [Test, Explicit("Fails on build server")]
+        [Fact, Explicit("Fails on build server")]
         public void ShouldPerformFasterThanGetCustomAttributes()
         {
             var type = typeof(TestAttributedClass);
@@ -199,7 +199,7 @@ namespace EasyNetQ.Tests
             Console.WriteLine(getAttributesTime);
         }
 
-        [Test]
+        [Fact]
         public void ShouldGetAttribute()
         {
             Assert.IsNotNull(typeof(TestAttributedClass).GetAttribute<OneTestAttribute>());

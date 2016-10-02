@@ -9,7 +9,7 @@ namespace EasyNetQ.Tests.Interception
     [TestFixture]
     public class BuildInInterceptorsTests : UnitTestBase
     {
-        [Test]
+        [Fact]
         public void ShouldCompressAndDecompress()
         {
             var gZipInterceptor = new GZipInterceptor();
@@ -19,7 +19,7 @@ namespace EasyNetQ.Tests.Interception
         }
 
 
-        [Test]
+        [Fact]
         public void ShouldEncryptAndDecrypt()
         {
             var tripleDESInterceptor = new TripleDESInterceptor(Convert.FromBase64String("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"), Convert.FromBase64String("aaaaaaaaaaa="));
@@ -28,7 +28,7 @@ namespace EasyNetQ.Tests.Interception
             Assert.AreEqual(body, tripleDESInterceptor.OnConsume(tripleDESInterceptor.OnProduce(rawMessage)).Body);
         }
 
-        [Test]
+        [Fact]
         public void ShouldCallAddedInterceptorsOnProduce()
         {
             var sourceMessage = new RawMessage(new MessageProperties(), new byte[0]);
@@ -46,7 +46,7 @@ namespace EasyNetQ.Tests.Interception
             Assert.AreEqual(secondMessage, compositeInterceptor.OnProduce(sourceMessage));
         }
 
-        [Test]
+        [Fact]
         public void ShouldCallAddedInterceptorsOnConsume()
         {
             var sourceMessage = new RawMessage(new MessageProperties(), new byte[0]);

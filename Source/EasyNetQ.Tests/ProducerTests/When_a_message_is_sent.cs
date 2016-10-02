@@ -22,7 +22,7 @@ namespace EasyNetQ.Tests.ProducerTests
             mockBuilder.Bus.Send(queueName, new MyMessage { Text = "Hello World" });
         }
 
-        [Test]
+        [Fact]
         public void Should_publish_the_message()
         {
             mockBuilder.Channels[0].AssertWasCalled(x => x.BasicPublish(
@@ -33,7 +33,7 @@ namespace EasyNetQ.Tests.ProducerTests
                 Arg<byte[]>.Is.Anything));
         }
 
-        [Test]
+        [Fact]
         public void Should_declare_the_queue()
         {
             mockBuilder.Channels[0].AssertWasCalled(x => x.QueueDeclare(
