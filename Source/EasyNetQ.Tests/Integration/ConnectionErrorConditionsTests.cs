@@ -5,7 +5,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [TestFixture]
     public class ConnectionErrorConditionsTests
     {
         [SetUp]

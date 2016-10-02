@@ -6,7 +6,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests.MessageVersioningTests
 {
-    [TestFixture]
     public class MessageVersionStackTests
     {
         [Fact]

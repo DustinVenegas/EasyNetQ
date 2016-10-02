@@ -9,7 +9,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.ClientCommandDispatcherTests
 {
-    [TestFixture]
     public class When_an_action_is_invoked_that_throws
     {
         private IClientCommandDispatcher dispatcher;

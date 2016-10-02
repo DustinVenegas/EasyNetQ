@@ -6,7 +6,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests
 {
-    [TestFixture]
     public class ConnectionStringTests
     {
         const string connectionStringValue =

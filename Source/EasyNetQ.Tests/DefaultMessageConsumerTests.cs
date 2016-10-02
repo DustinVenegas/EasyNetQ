@@ -6,7 +6,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests
 {
-    [TestFixture]
     public class DefaultMessageConsumerTests
     {
         [Fact]

@@ -10,7 +10,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.ConsumeTests
 {
-    [TestFixture]
     public class When_a_consumer_is_cancelled_by_the_broker
     {
         private MockBuilder mockBuilder;

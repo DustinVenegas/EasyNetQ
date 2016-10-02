@@ -6,7 +6,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [TestFixture]
     public class PublishSubscribeWithInterceptionTest
     {
         [SetUp]

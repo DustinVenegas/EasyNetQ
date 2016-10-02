@@ -7,7 +7,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.ConsumeTests
 {
-    [TestFixture]
     public class When_cancellation_of_message_handler_occurs : ConsumerTestBase
     {
         protected override void AdditionalSetUp()

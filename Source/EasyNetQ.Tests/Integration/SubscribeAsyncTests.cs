@@ -8,7 +8,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [TestFixture]
     public class SubscribeAsyncTests
     {
         private IBus bus;

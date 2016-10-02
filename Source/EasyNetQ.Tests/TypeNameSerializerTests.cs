@@ -5,7 +5,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests
 {
-    [TestFixture]
     public class TypeNameSerializerTests
     {
         const string expectedTypeName = "System.String:mscorlib";

@@ -6,7 +6,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests.ConsumeTests
 {
-    [TestFixture]
     public class HandlerCollectionTests
     {
         private IHandlerCollection handlerCollection;

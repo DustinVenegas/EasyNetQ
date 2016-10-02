@@ -8,7 +8,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.ProducerTests
 {
-    [TestFixture]
     public class When_a_polymorphic_message_is_sent
     {
         private MockBuilder mockBuilder;

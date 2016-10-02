@@ -9,7 +9,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [TestFixture, Explicit]
+    [Trait("RabbitMQ", "Localhost")]
     public class AdvancedApiTransientQueueTests
     {
         private IBus bus;

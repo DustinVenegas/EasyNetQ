@@ -7,7 +7,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.ProducerTests
 {
-    [TestFixture]
     public class PublishConfirmationListenerTest
     {
         private EventBus eventBus;

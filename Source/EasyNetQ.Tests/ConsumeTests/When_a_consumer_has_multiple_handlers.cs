@@ -8,7 +8,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests.ConsumeTests
 {
-    [TestFixture]
     public class When_a_consumer_has_multiple_handlers
     {
         private MockBuilder mockBuilder;

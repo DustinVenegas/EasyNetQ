@@ -9,7 +9,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.MessageVersioningTests
 {
-    [TestFixture]
     public class VersionedPublishExchangeDeclareStrategyTests
     {
         [Fact]

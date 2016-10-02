@@ -13,7 +13,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests
 {
-    [TestFixture]
     public class DefaultConsumerErrorStrategyTests
     {
         private DefaultConsumerErrorStrategy consumerErrorStrategy;

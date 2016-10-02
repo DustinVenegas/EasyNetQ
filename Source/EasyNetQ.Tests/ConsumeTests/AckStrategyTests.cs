@@ -6,7 +6,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.ConsumeTests
 {
-    [TestFixture]
     public class Ack_strategy
     {
         private IModel model;
@@ -36,7 +35,6 @@ namespace EasyNetQ.Tests.ConsumeTests
         } 
     }
 
-    [TestFixture]
     public class NackWithoutRequeue_strategy
     {
         private IModel model;
@@ -66,7 +64,6 @@ namespace EasyNetQ.Tests.ConsumeTests
         }
     }
 
-    [TestFixture]
     public class NackWithRequeue_strategy
     {
         private IModel model;
@@ -96,7 +93,6 @@ namespace EasyNetQ.Tests.ConsumeTests
         }
     }
 
-    [TestFixture]
     public class Nothing_strategy
     {
         private IModel model;

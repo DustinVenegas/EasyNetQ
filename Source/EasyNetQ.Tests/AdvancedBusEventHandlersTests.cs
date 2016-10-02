@@ -9,7 +9,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests
 {
-    [TestFixture]
     public class AdvancedBusEventHandlersTests
     {
         private AdvancedBusEventHandlers advancedBusEventHandlers;

@@ -8,7 +8,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [TestFixture]
     [Explicit("Requires a RabbitMQ broker on localhost.")]
     public class AutoSubscriberIntegrationTests
     {

@@ -8,7 +8,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests
 {
-    [TestFixture]
     public class ConsumerDispatcherFactoryTests
     {
         private IConsumerDispatcherFactory dispatcherFactory;

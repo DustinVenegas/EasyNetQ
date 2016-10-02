@@ -6,7 +6,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests
 {
-    [TestFixture]
     public class ModelCleanupTests
     {
         private IBus bus;

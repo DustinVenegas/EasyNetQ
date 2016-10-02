@@ -6,7 +6,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests
 {
-    [TestFixture]
     public class DefaultServiceProviderTestsX
     {
         private interface IRoot
@@ -77,7 +76,6 @@ namespace EasyNetQ.Tests
     }
 
 
-    [TestFixture]
     public class DefaultServiceProviderTests
     {
         private IServiceProvider serviceProvider;

@@ -3,7 +3,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests
 {
-    [TestFixture]
     public class MessageFactoryTests
     {
         [Fact]

@@ -5,7 +5,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests
 {
-    [TestFixture]
     public class EventBusTests
     {
         private IEventBus eventBus;

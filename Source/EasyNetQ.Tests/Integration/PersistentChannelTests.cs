@@ -9,7 +9,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [TestFixture, Explicit("Requires a broker on localhost.")]
+    [Explicit("Requires a broker on localhost.")]
     public class PersistentChannelTests
     {
         private IPersistentConnection connection;

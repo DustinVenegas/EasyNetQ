@@ -9,7 +9,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [TestFixture, Explicit("Requires a RabbitMQ instance on localhost")]
+    [Explicit("Requires a RabbitMQ instance on localhost")]
     public class AdvancedApiExamples
     {
         private IAdvancedBus advancedBus;

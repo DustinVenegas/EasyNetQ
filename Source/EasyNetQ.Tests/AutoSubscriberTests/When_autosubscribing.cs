@@ -10,7 +10,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.AutoSubscriberTests
 {
-    [TestFixture]
     public class When_autosubscribing
     {
         private MockBuilder mockBuilder;

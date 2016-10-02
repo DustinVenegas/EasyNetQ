@@ -9,7 +9,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests
 {
-    [TestFixture]
     public class MessagePropertiesTests
     {
         [SetUp]

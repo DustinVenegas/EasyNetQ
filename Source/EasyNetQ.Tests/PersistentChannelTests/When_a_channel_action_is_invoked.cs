@@ -8,7 +8,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.PersistentChannelTests
 {
-    [TestFixture]
     public class When_a_channel_action_is_invoked
     {
         private IPersistentChannel persistentChannel;

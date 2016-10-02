@@ -7,7 +7,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.Interception
 {
-    [TestFixture]
     public partial class InterceptionExtensionsTests : UnitTestBase
     {
         

@@ -13,7 +13,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [TestFixture]
     [Explicit]
     public class AdvancedApiPingPongTest
     {

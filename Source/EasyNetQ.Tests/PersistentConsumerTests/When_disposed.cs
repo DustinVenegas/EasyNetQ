@@ -5,7 +5,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.PersistentConsumerTests
 {
-    [TestFixture]
     public class When_disposed : Given_a_PersistentConsumer
     {
         public override void AdditionalSetup()

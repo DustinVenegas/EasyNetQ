@@ -9,7 +9,6 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.ProducerTests
 {
-    [TestFixture]
     public class PublishExchangeDeclareStrategyTests
     {
         private const string exchangeName = "the_exchange";

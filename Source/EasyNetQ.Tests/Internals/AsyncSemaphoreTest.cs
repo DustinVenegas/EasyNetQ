@@ -3,7 +3,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Internals
 {
-    [TestFixture]
     public class AsyncSemaphoreTest
     {
         [Fact]

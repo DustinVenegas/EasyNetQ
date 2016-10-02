@@ -4,7 +4,6 @@ using Xunit;
 
 namespace EasyNetQ.Tests.FluentConfiguration
 {
-    [TestFixture]
     public class PublishConfigurationTests
     {
         [Fact]
