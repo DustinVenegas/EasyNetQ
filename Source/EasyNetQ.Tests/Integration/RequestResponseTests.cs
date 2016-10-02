@@ -5,6 +5,7 @@ using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace EasyNetQ.Tests.Integration
 {
@@ -248,8 +249,7 @@ namespace EasyNetQ.Tests.Integration
         // Thrown, a new error message in the error queue and an EasyNetQResponderException
         // exception should be thrown by the consumer as a response.
         [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
-        [ExpectedException(ExpectedException = typeof(EasyNetQResponderException), ExpectedMessage = "This should be the original exception message!")]
-        public void Should_throw_an_exception_at_consumer_on_simple_request_response_that_throws_on_server()
+        public async Task Should_throw_an_exception_at_consumer_on_simple_request_response_that_throws_on_server()
         {
             var request = new TestRequestMessage
             {
@@ -259,14 +259,9 @@ namespace EasyNetQ.Tests.Integration
             };
 
             Console.WriteLine("Making request");
-            try
-            {
-                bus.RequestAsync<TestRequestMessage, TestResponseMessage>(request).Wait(1000);
-            }
-            catch (AggregateException e)
-            {
-                throw e.InnerException;
-            }
+
+            var ex = await Assert.ThrowsAsync<EasyNetQResponderException>(() => bus.RequestAsync<TestRequestMessage, TestResponseMessage>(request));
+            Assert.Equal("This should be the original exception message!", ex.Message);
         }
 
         // First start the EasyNetQ.Tests.SimpleService console app.

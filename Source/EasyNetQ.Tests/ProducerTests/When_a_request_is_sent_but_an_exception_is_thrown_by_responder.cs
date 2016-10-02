@@ -7,6 +7,7 @@ using System;
 using System.Text;
 using EasyNetQ.Tests.Mocking;
 using Xunit;
+using System.Threading.Tasks;
 
 namespace EasyNetQ.Tests.ProducerTests
 {
@@ -33,35 +34,20 @@ namespace EasyNetQ.Tests.ProducerTests
         }
 
         [Fact]
-        [ExpectedException(ExpectedException = typeof(EasyNetQResponderException))]
-        public void Should_throw_an_EasyNetQResponderException()
+        public async Task Should_throw_an_EasyNetQResponderException()
         {
-            try
-            {
-                var task = mockBuilder.Bus.RequestAsync<TestRequestMessage, TestResponseMessage>(requestMessage);
-                DeliverMessage(_correlationId, null);
-                task.Wait(1000);
-            }
-            catch (AggregateException aggregateException)
-            {
-                throw aggregateException.InnerException;
-            }
+            var task = mockBuilder.Bus.RequestAsync<TestRequestMessage, TestResponseMessage>(requestMessage);
+            DeliverMessage(_correlationId, null);
+            await Assert.ThrowsAsync<EasyNetQResponderException>(() => task);
         }
 
         [Fact]
-        [ExpectedException(ExpectedException = typeof(EasyNetQResponderException), ExpectedMessage = "Why you are so bad with me?")]
-        public void Should_throw_an_EasyNetQResponderException_with_a_specific_exception_message()
+        public async Task Should_throw_an_EasyNetQResponderException_with_a_specific_exception_message()
         {
-            try
-            {
-                var task = mockBuilder.Bus.RequestAsync<TestRequestMessage, TestResponseMessage>(requestMessage);
-                DeliverMessage(_correlationId, "Why you are so bad with me?");
-                task.Wait(1000);
-            }
-            catch (AggregateException aggregateException)
-            {
-                throw aggregateException.InnerException;
-            }
+            var task = mockBuilder.Bus.RequestAsync<TestRequestMessage, TestResponseMessage>(requestMessage);
+            DeliverMessage(_correlationId, "Why you are so bad with me?");
+            var actualEx = await Assert.ThrowsAsync<EasyNetQResponderException>(() => task);
+            Assert.Equal("Why you are so bad with me?", actualEx.Message);
         }
 
         protected void DeliverMessage(string correlationId, string exceptionMessage)

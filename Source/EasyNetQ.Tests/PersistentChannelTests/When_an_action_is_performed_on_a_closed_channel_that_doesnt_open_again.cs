@@ -44,10 +44,9 @@ namespace EasyNetQ.Tests.PersistentChannelTests
         }
 
         [Fact]
-        [ExpectedException(typeof(TimeoutException))]
         public void Should_throw_timeout_exception()
         {
-            persistentChannel.InvokeChannelAction(x => x.ExchangeDeclare("MyExchange", "direct"));
+            Assert.Throws<TimeoutException>(() => persistentChannel.InvokeChannelAction(x => x.ExchangeDeclare("MyExchange", "direct")));
         }
     }
 }

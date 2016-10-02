@@ -16,10 +16,9 @@ namespace EasyNetQ.Tests
         }
 
         [Fact]
-        [ExpectedException(typeof(MissingMethodException))]
         public void ShouldFailToCreateClassWithoutDefaultConstructor()
         {
-            ReflectionHelpers.CreateInstance<ClassWithoutDefaultConstuctor>();
+            Assert.Throws<MissingMethodException>(() => ReflectionHelpers.CreateInstance<ClassWithoutDefaultConstuctor>());
         }
 
         [Fact, Explicit("Fails on build server.")]
@@ -64,10 +63,9 @@ namespace EasyNetQ.Tests
         }
 
         [Fact]
-        [ExpectedException(typeof(MissingMethodException))]
         public void ShouldFailToCreateClassWithoutSingleParameterConstructor()
         {
-            ReflectionHelpers.CreateInstance(typeof(ClassWithDefaultConstuctor), 1);
+            Assert.Throws<MissingMethodException>(() => ReflectionHelpers.CreateInstance(typeof(ClassWithDefaultConstuctor), 1));
         }
 
         [Fact, Explicit("Fails on build server.")]
@@ -114,10 +112,9 @@ namespace EasyNetQ.Tests
         }
 
         [Fact]
-        [ExpectedException(typeof(MissingMethodException))]
         public void ShouldFailToCreateClassWithoutDualParameterConstructor()
         {
-            ReflectionHelpers.CreateInstance(typeof(ClassWithDefaultConstuctor), 1, 2);
+            Assert.Throws<MissingMethodException>(() => ReflectionHelpers.CreateInstance(typeof(ClassWithDefaultConstuctor), 1, 2));
         }
 
         [Fact, Explicit("Fails on build server.")]

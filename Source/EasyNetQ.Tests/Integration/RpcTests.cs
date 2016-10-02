@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using EasyNetQ.Loggers;
 using EasyNetQ.Tests.ProducerTests.Very.Long.Namespace.Certainly.Longer.Than.The255.Char.Length.That.RabbitMQ.Likes.That.Will.Certainly.Cause.An.AMQP.Exception.If.We.Dont.Do.Something.About.It.And.Stop.It.From.Happening;
 using Xunit;
@@ -44,29 +45,49 @@ namespace EasyNetQ.Tests.Integration
         }
 
         [Fact]
-        [ExpectedException(typeof(EasyNetQException))]
         public void Should_throw_when_requesting_over_long_message()
         {
-            bus.Respond<MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes, RpcRequest>(
-                req => new RpcRequest());
+            Exception actualEx = null;
+            try
+            {
+                bus.Respond<MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes, RpcRequest>(
+                    req => new RpcRequest());
 
-            bus.Request<MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes, RpcRequest>(
-                new MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes());
+                bus.Request<MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes, RpcRequest>(
+                    new MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes());
 
-            Thread.Sleep(2000);
+                Thread.Sleep(2000);
+            }
+            catch(Exception ex)
+            {
+                // This is strange. Wouldn't the second call never throw in this test? Should these be separate tests?
+                Assert.IsType<EasyNetQException>(ex);
+                actualEx = ex;
+            }
+            Assert.NotNull(actualEx); // Expected an exception and never got one
         }
 
         [Fact]
-        [ExpectedException(typeof(EasyNetQException))]
         public void Should_throw_when_responding_to_over_long_message()
         {
-            bus.Respond<RpcRequest, MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes>(
-                req => new MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes());
+            Exception actualEx = null;
+            try
+            {
+                bus.Respond<RpcRequest, MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes>(
+                    req => new MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes());
 
-            bus.Request<RpcRequest, MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes>(
-                new RpcRequest());
+                bus.Request<RpcRequest, MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes>(
+                    new RpcRequest());
 
-            Thread.Sleep(2000);
+                Thread.Sleep(2000);
+            }
+            catch(Exception ex)
+            {
+                // This is strange. Wouldn't the second call never throw in this test? Should these be separate tests?
+                Assert.IsType<EasyNetQException>(ex);
+                actualEx = ex;
+            }
+            Assert.NotNull(actualEx); // Expected an exception and never got one
         }
     }
 }

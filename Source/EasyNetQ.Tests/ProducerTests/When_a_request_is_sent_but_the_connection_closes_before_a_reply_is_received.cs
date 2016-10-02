@@ -4,6 +4,7 @@ using System;
 using EasyNetQ.Tests.Mocking;
 using Xunit;
 using Rhino.Mocks;
+using System.Threading.Tasks;
 
 namespace EasyNetQ.Tests.ProducerTests
 {
@@ -18,19 +19,11 @@ namespace EasyNetQ.Tests.ProducerTests
         }
 
         [Fact]
-        [ExpectedException(typeof(EasyNetQException))]
-        public void Should_throw_an_EasyNetQException()
+        public async Task Should_throw_an_EasyNetQException()
         {
-            try
-            {
-                var task = mockBuilder.Bus.RequestAsync<TestRequestMessage, TestResponseMessage>(new TestRequestMessage());
-                mockBuilder.Connection.Raise(x => x.ConnectionShutdown += null, null, null);
-                task.Wait();
-            }
-            catch (AggregateException aggregateException)
-            {
-                throw aggregateException.InnerException;
-            }
+            var task = mockBuilder.Bus.RequestAsync<TestRequestMessage, TestResponseMessage>(new TestRequestMessage());
+            mockBuilder.Connection.Raise(x => x.ConnectionShutdown += null, null, null);
+            await Assert.ThrowsAsync<EasyNetQException>(() => task);
         }         
     }
 }

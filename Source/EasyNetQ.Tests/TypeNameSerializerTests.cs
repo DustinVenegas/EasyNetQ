@@ -47,27 +47,25 @@ namespace EasyNetQ.Tests
         }
 
         [Fact]
-        [ExpectedException(typeof(EasyNetQException))]
         public void Should_throw_exception_when_type_name_is_not_recognised()
         {
-            typeNameSerializer.DeSerialize("EasyNetQ.TypeNameSerializer.None:EasyNetQ");
+            Assert.Throws<EasyNetQException>(() => typeNameSerializer.DeSerialize("EasyNetQ.TypeNameSerializer.None:EasyNetQ"));
         }
 
         [Fact]
-        [ExpectedException(typeof(EasyNetQException))]
         public void Should_throw_if_type_name_is_too_long()
         {
-            typeNameSerializer.Serialize(
-                typeof (
-                    MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes
-                    ));
+            Assert.Throws<EasyNetQException>(() => 
+                typeNameSerializer.Serialize(
+                    typeof (
+                        MessageWithVeryVEryVEryLongNameThatWillMostCertainlyBreakAmqpsSilly255CharacterNameLimitThatIsAlmostCertainToBeReachedWithGenericTypes
+                        )));
         }
 
         [Fact]
-        [ExpectedException(typeof(ArgumentException))]
         public void Should_throw_exception_if_type_name_is_null()
         {
-            typeNameSerializer.DeSerialize(null);
+            Assert.Throws<ArgumentException>(() => typeNameSerializer.DeSerialize(null));
         }
 
         public void Spike()

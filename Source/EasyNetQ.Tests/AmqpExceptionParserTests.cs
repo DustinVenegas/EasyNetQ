@@ -39,12 +39,11 @@ namespace EasyNetQ.Tests
         }
 
         [Fact]
-        [ExpectedException(typeof(Sprache.ParseException))]
         public void Should_fail_on_badly_formatted_exception()
         {
             const string originalException = "Do be do od be do do = something else, that I don't know=hello";
 
-            AmqpExceptionGrammar.ParseExceptionString(originalException);
+            Assert.Throws<Sprache.ParseException>(() => AmqpExceptionGrammar.ParseExceptionString(originalException));
         }
     }
 }
