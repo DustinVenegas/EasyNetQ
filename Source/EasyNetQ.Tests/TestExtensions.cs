@@ -48,7 +48,7 @@ namespace EasyNetQ.Tests
 
         public static void ShouldBeTheSameAs(this object actual, object expected)
         {
-            Assert.AreSame(expected, actual);
+            Assert.Same(expected, actual);
         }
 
         public static T CastTo<T>(this object source)
