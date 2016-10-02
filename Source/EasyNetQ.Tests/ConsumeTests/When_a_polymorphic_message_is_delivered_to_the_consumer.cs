@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using EasyNetQ.Tests.Mocking;
 using EasyNetQ.Topology;
-using NUnit.Framework;
+using Xunit;
 
 namespace EasyNetQ.Tests.ConsumeTests
 {

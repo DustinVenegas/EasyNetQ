@@ -1,4 +1,4 @@
-using NUnit.Framework;
+using Xunit;
 using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.Interception

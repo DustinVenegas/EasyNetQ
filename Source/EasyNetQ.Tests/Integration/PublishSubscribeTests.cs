@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using EasyNetQ.Loggers;
-using NUnit.Framework;
+using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {

@@ -1,7 +1,7 @@
 using System;
 using EasyNetQ.AutoSubscribe;
 using EasyNetQ.FluentConfiguration;
-using NUnit.Framework;
+using Xunit;
 using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.AutoSubscriberTests

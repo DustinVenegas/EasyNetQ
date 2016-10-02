@@ -4,7 +4,7 @@ using System;
 using System.Threading;
 using EasyNetQ.Loggers;
 using EasyNetQ.Scheduling;
-using NUnit.Framework;
+using Xunit;
 
 namespace EasyNetQ.Tests.Integration.Scheduling
 {

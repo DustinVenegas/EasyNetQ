@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 using EasyNetQ.Tests.Mocking;
-using NUnit.Framework;
+using Xunit;
 using RabbitMQ.Client;
 using Rhino.Mocks;
 

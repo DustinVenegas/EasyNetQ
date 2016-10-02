@@ -6,7 +6,7 @@ using EasyNetQ.Consumer;
 using EasyNetQ.Events;
 using EasyNetQ.Tests.Mocking;
 using EasyNetQ.Topology;
-using NUnit.Framework;
+using Xunit;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Framing;
 using Rhino.Mocks;

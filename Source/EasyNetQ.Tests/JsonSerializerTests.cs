@@ -3,7 +3,7 @@ using RabbitMQ.Client.Framing;
 // ReSharper disable InconsistentNaming
 using System;
 using System.Text;
-using NUnit.Framework;
+using Xunit;
 using RabbitMQ.Client;
 
 namespace EasyNetQ.Tests

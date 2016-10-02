@@ -3,7 +3,7 @@
 using System;
 using System.Threading;
 using EasyNetQ.Loggers;
-using NUnit.Framework;
+using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {

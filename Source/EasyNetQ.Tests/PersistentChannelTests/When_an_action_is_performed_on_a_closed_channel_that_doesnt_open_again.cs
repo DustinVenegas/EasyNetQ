@@ -3,7 +3,7 @@
 using System;
 using EasyNetQ.AmqpExceptions;
 using EasyNetQ.Producer;
-using NUnit.Framework;
+using Xunit;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Exceptions;
 using Rhino.Mocks;

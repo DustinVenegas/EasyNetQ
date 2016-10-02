@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using NUnit.Framework;
+using Xunit;
 
 namespace EasyNetQ.Tests
 {

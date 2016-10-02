@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using EasyNetQ.MessageVersioning;
-using NUnit.Framework;
+using Xunit;
 using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.MessageVersioningTests

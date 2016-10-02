@@ -1,6 +1,6 @@
 ﻿using EasyNetQ.Events;
 using EasyNetQ.Producer;
-using NUnit.Framework;    
+using Xunit;    
 using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.PersistentChannelTests

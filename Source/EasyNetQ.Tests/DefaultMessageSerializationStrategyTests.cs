@@ -2,7 +2,7 @@
 
 using System;
 using System.Text;
-using NUnit.Framework;
+using Xunit;
 using Rhino.Mocks;
 
 namespace EasyNetQ.Tests

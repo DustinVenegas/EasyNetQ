@@ -4,7 +4,7 @@ using System;
 using System.Reflection;
 using System.Threading;
 using EasyNetQ.AutoSubscribe;
-using NUnit.Framework;
+using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {

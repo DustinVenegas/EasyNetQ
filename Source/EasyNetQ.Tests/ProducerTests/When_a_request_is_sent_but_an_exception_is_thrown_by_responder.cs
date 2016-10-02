@@ -6,7 +6,7 @@ using Rhino.Mocks;
 using System;
 using System.Text;
 using EasyNetQ.Tests.Mocking;
-using NUnit.Framework;
+using Xunit;
 
 namespace EasyNetQ.Tests.ProducerTests
 {

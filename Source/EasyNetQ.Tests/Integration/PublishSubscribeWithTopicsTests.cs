@@ -2,7 +2,7 @@
 
 using System;
 using System.Threading;
-using NUnit.Framework;
+using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {

@@ -2,7 +2,7 @@
 using EasyNetQ.Events;
 using EasyNetQ.Interception;
 using EasyNetQ.Producer;
-using NUnit.Framework;
+using Xunit;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using Rhino.Mocks;

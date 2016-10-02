@@ -1,7 +1,7 @@
 ﻿// ReSharper disable InconsistentNaming
 
 using EasyNetQ.Events;
-using NUnit.Framework;
+using Xunit;
 using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.PersistentConsumerTests

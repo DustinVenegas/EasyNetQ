@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Net.Security;
-using NUnit.Framework;
+using Xunit;
 using RabbitMQ.Client;
 
 namespace EasyNetQ.Tests

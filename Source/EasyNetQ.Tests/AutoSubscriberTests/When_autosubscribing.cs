@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using EasyNetQ.AutoSubscribe;
 using EasyNetQ.Tests.Mocking;
-using NUnit.Framework;
+using Xunit;
 using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.AutoSubscriberTests

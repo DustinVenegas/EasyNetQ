@@ -4,7 +4,7 @@ using RabbitMQ.Client.Framing;
 using System.Threading;
 using EasyNetQ.Tests.Mocking;
 using EasyNetQ.Topology;
-using NUnit.Framework;
+using Xunit;
 
 namespace EasyNetQ.Tests.ConsumeTests
 {

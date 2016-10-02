@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using EasyNetQ.Loggers;
 using EasyNetQ.Management.Client;
 using EasyNetQ.Topology;
-using NUnit.Framework;
+using Xunit;
 using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.Integration

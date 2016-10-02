@@ -4,7 +4,7 @@ using System;
 using System.Text;
 using System.Threading;
 using EasyNetQ.Tests.Mocking;
-using NUnit.Framework;
+using Xunit;
 using EasyNetQ.NonGeneric;
 
 namespace EasyNetQ.Tests.NonGeneric

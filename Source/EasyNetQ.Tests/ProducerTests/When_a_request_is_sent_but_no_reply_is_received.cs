@@ -2,7 +2,7 @@
 
 using System;
 using EasyNetQ.Tests.Mocking;
-using NUnit.Framework;
+using Xunit;
 
 namespace EasyNetQ.Tests.ProducerTests
 {

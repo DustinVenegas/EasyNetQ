@@ -3,7 +3,7 @@
 using System.Threading;
 using EasyNetQ.ConnectionString;
 using EasyNetQ.Consumer;
-using NUnit.Framework;
+using Xunit;
 using Rhino.Mocks;
 
 namespace EasyNetQ.Tests

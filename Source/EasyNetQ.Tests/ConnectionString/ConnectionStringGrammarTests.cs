@@ -2,7 +2,7 @@
 
 using System.Linq;
 using EasyNetQ.ConnectionString;
-using NUnit.Framework;
+using Xunit;
 using Sprache;
 
 namespace EasyNetQ.Tests.ConnectionString

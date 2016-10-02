@@ -4,7 +4,7 @@ using System.Threading;
 using EasyNetQ.AmqpExceptions;
 using EasyNetQ.Events;
 using EasyNetQ.Producer;
-using NUnit.Framework;
+using Xunit;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Exceptions;
 using Rhino.Mocks;

@@ -5,7 +5,7 @@ using System.Threading;
 using EasyNetQ.ConnectionString;
 using EasyNetQ.Loggers;
 using EasyNetQ.Producer;
-using NUnit.Framework;
+using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
