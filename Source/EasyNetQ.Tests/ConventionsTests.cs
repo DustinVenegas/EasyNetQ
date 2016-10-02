@@ -95,9 +95,9 @@ namespace EasyNetQ.Tests
             conventions = new Conventions(typeNameSerializer);
         }
 
-        [Fact]
-        [TestCase(typeof(AnnotatedTestMessage))]
-        [TestCase(typeof(IAnnotatedTestMessage))]
+        [Theory]
+        [InlineData(typeof(AnnotatedTestMessage))]
+        [InlineData(typeof(IAnnotatedTestMessage))]
         public void The_queue_naming_convention_should_use_attribute_queueName_then_an_underscore_then_the_subscription_id(Type messageType)
         {
             const string subscriptionId = "test";
@@ -105,9 +105,9 @@ namespace EasyNetQ.Tests
             result.ShouldEqual("MyQueue" + "_" + subscriptionId);
         }
 
-        [Fact]
-        [TestCase(typeof(AnnotatedTestMessage))]
-        [TestCase(typeof(IAnnotatedTestMessage))]
+        [Theory]
+        [InlineData(typeof(AnnotatedTestMessage))]
+        [InlineData(typeof(IAnnotatedTestMessage))]
         public void And_subscription_id_is_empty_the_queue_naming_convention_should_use_attribute_queueName(Type messageType)
         {
             const string subscriptionId = "";
@@ -116,9 +116,9 @@ namespace EasyNetQ.Tests
         }
 
 
-        [Fact]
-        [TestCase(typeof(EmptyQueueNameAnnotatedTestMessage))]
-        [TestCase(typeof(IEmptyQueueNameAnnotatedTestMessage))]
+        [Theory]
+        [InlineData(typeof(EmptyQueueNameAnnotatedTestMessage))]
+        [InlineData(typeof(IEmptyQueueNameAnnotatedTestMessage))]
         public void And_queueName_is_empty_should_use_the_TypeNameSerializers_Serialize_method_then_an_underscore_then_the_subscription_id(Type messageType)
         {
             const string subscriptionId = "test";
@@ -126,18 +126,18 @@ namespace EasyNetQ.Tests
             result.ShouldEqual(typeNameSerializer.Serialize(messageType) + "_" + subscriptionId);
         }
 
-        [Fact]
-        [TestCase(typeof(AnnotatedTestMessage))]
-        [TestCase(typeof(IAnnotatedTestMessage))]
+        [Theory]
+        [InlineData(typeof(AnnotatedTestMessage))]
+        [InlineData(typeof(IAnnotatedTestMessage))]
         public void The_exchange_name_convention_should_use_attribute_exchangeName(Type messageType)
         {
             var result = conventions.ExchangeNamingConvention(messageType);
             result.ShouldEqual("MyExchange");
         }
 
-        [Fact]
-        [TestCase(typeof(QueueNameOnlyAnnotatedTestMessage))]
-        [TestCase(typeof(IQueueNameOnlyAnnotatedTestMessage))]
+        [Theory]
+        [InlineData(typeof(QueueNameOnlyAnnotatedTestMessage))]
+        [InlineData(typeof(IQueueNameOnlyAnnotatedTestMessage))]
         public void And_exchangeName_not_specified_the_exchange_name_convention_should_use_the_TypeNameSerializers_Serialize_method(Type messageType)
         {
             var result = conventions.ExchangeNamingConvention(messageType);
