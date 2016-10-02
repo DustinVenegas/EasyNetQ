@@ -30,7 +30,7 @@ namespace EasyNetQ.Tests
             ConnectionConfiguration connectionConfiguration = new ConnectionConfiguration();
 
             connectionConfiguration.AuthMechanisms.Count.ShouldEqual(1);
-            connectionConfiguration.AuthMechanisms.Single().ShouldBeOfType<PlainMechanismFactory>();
+            connectionConfiguration.AuthMechanisms.Single().ShouldBe<PlainMechanismFactory>();
         }
     }
 }

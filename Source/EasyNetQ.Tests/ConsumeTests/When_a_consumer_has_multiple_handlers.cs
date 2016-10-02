@@ -86,7 +86,7 @@ namespace EasyNetQ.Tests.ConsumeTests
         public void Should_deliver_a_ploymorphic_message()
         {
             animalResult.ShouldNotBeNull();
-            animalResult.ShouldBeOfType<Dog>();
+            animalResult.ShouldBe<Dog>();
         }
     }
 }
