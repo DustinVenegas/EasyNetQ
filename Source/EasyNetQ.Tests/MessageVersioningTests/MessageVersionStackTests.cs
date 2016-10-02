@@ -13,7 +13,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
         {
             var stack = new MessageVersionStack( typeof( MyMessage ) );
 
-            Assert.That( stack.Single(), Is.EqualTo( typeof( MyMessage ) ) );
+            Assert.Equal(typeof(MyMessage), stack.Single());
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace EasyNetQ.Tests.MessageVersioningTests
         {
             var stack = new MessageVersionStack( typeof( MyMessageV2 ) );
 
-            Assert.That( stack.ElementAt( 0 ), Is.EqualTo( typeof( MyMessage ) ) );
-            Assert.That( stack.ElementAt( 1 ), Is.EqualTo( typeof( MyMessageV2 ) ) );
+            Assert.Equal(typeof(MyMessage), stack.ElementAt(0));
+            Assert.Equal(typeof(MyMessageV2), stack.ElementAt(1));
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
         {
             var stack = new MessageVersionStack( typeof( MyMessageV2 ) );
             var top = stack.ElementAt( 0 );
-            Assert.That( stack.Pop(), Is.EqualTo( top ) );
+            Assert.Equal(top, stack.Pop());
         }
 
         [Fact]
@@ -38,8 +38,8 @@ namespace EasyNetQ.Tests.MessageVersioningTests
         {
             var stack = new MessageVersionStack( typeof( MyMessage ) );
 
-            Assert.That( stack.Count(), Is.GreaterThan( 0 ) );
-            Assert.That( stack.IsEmpty(), Is.False );
+            Assert.True(stack.Count() > 0);
+            Assert.False(stack.IsEmpty());
         }
 
         [Fact]
@@ -48,8 +48,8 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             var stack = new MessageVersionStack( typeof( MyMessage ) );
             stack.Pop();
 
-            Assert.That( stack.Count(), Is.EqualTo( 0 ) );
-            Assert.That( stack.IsEmpty(), Is.True );
+            Assert.Equal(0, stack.Count());
+            Assert.True(stack.IsEmpty());
         }
 
         [Fact]

@@ -18,7 +18,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             var property = MessageTypeProperty.CreateForMessageType( typeof( MyMessage ), typeNameSerialiser );
 
             var messageType = property.GetMessageType();
-            Assert.That( messageType.Type, Is.EqualTo( typeof( MyMessage ) ) );
+            Assert.Equal(typeof(MyMessage), messageType.Type);
         }
 
         [Fact]
@@ -30,8 +30,8 @@ namespace EasyNetQ.Tests.MessageVersioningTests
 
             property.AppendTo( properties );
 
-            Assert.That( properties.Type, Is.EqualTo( typeNameSerialiser.Serialize( typeof( MyMessage ) ) ) );
-            Assert.That( properties.Headers.ContainsKey( AlternativeMessageTypesHeaderKey ), Is.False );
+            Assert.Equal(typeNameSerialiser.Serialize(typeof(MyMessage)), properties.Type);
+            Assert.DoesNotContain(AlternativeMessageTypesHeaderKey, properties.Headers.Keys);
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             var property = MessageTypeProperty.CreateForMessageType( typeof( MyMessageV2 ), typeNameSerialiser );
 
             var messageType = property.GetMessageType();
-            Assert.That( messageType.Type, Is.EqualTo( typeof( MyMessageV2 ) ) );
+            Assert.Equal(typeof(MyMessageV2), messageType.Type);
         }
 
         [Fact]
@@ -53,8 +53,8 @@ namespace EasyNetQ.Tests.MessageVersioningTests
 
             property.AppendTo( properties );
 
-            Assert.That( properties.Type, Is.EqualTo( typeNameSerialiser.Serialize( typeof( MyMessageV2 ) ) ) );
-            Assert.That( properties.Headers[ AlternativeMessageTypesHeaderKey ], Is.EqualTo( typeNameSerialiser.Serialize( typeof( MyMessage ) ) ) );
+            Assert.Equal(typeNameSerialiser.Serialize(typeof(MyMessageV2)), properties.Type);
+            Assert.Equal(typeNameSerialiser.Serialize(typeof(MyMessage)), properties.Headers[AlternativeMessageTypesHeaderKey]);
         }
 
         [Fact]
@@ -66,7 +66,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             var property = MessageTypeProperty.ExtractFromProperties( properties, typeNameSerialiser );
             var messageType = property.GetMessageType();
 
-            Assert.That( messageType.Type, Is.EqualTo( typeof( MyMessage ) ) );
+            Assert.Equal(typeof(MyMessage), messageType.Type);
         }
 
         [Fact]
@@ -80,7 +80,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             var property = MessageTypeProperty.ExtractFromProperties( properties, typeNameSerialiser );
             var messageType = property.GetMessageType();
 
-            Assert.That( messageType.Type, Is.EqualTo( typeof( MyMessageV2 ) ) );
+            Assert.Equal(typeof(MyMessageV2), messageType.Type);
         }
 
         [Fact]
@@ -99,7 +99,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             var property = MessageTypeProperty.ExtractFromProperties( properties, typeNameSerialiser );
             var messageType = property.GetMessageType();
 
-            Assert.That( messageType.Type, Is.EqualTo( typeof( MyMessageV2 ) ) );
+            Assert.Equal(typeof(MyMessageV2), messageType.Type);
         }
 
         [Fact]
@@ -119,7 +119,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             var property = MessageTypeProperty.ExtractFromProperties( properties, typeNameSerialiser );
             var messageType = property.GetMessageType();
 
-            Assert.That( messageType.Type, Is.EqualTo( typeof( MyMessageV2 ) ) );
+            Assert.Equal(typeof(MyMessageV2), messageType.Type);
         }
 
         [Fact]

@@ -71,7 +71,7 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             var deserializedMessage = serializationStrategy.DeserializeMessage(message.Properties, serializedMessageBody);
 
             AssertMessageDeserializedCorrectly((Message<MyMessage>)deserializedMessage, messageContent, typeof(MyMessage), p => AssertDefaultMessagePropertiesCorrect(p, messageType, correlationId));
-            Assert.That(deserializedMessage.Properties.UserId, Is.EqualTo(message.Properties.UserId), "Additional message properties not serialised");
+            Assert.Equal(message.Properties.UserId, deserializedMessage.Properties.UserId);
         }
 
         [Fact]
@@ -89,8 +89,8 @@ namespace EasyNetQ.Tests.MessageVersioningTests
             var serializedMessage = serializationStrategy.SerializeMessage(message);
             var deserializedMessage = serializationStrategy.DeserializeMessage(serializedMessage.Properties, serializedMessage.Body);
 
-            Assert.That(deserializedMessage.MessageType, Is.EqualTo(message.Body.GetType()));
-            Assert.That(((Message<MyMessage>)deserializedMessage).Body.Text, Is.EqualTo(message.Body.Text));
+            Assert.Equal(message.Body.GetType(), deserializedMessage.MessageType);
+            Assert.Equal(message.Body.Text, ((Message<MyMessage>)deserializedMessage).Body.Text);
         }
 
         [Fact]
@@ -188,9 +188,9 @@ namespace EasyNetQ.Tests.MessageVersioningTests
 
             var deserializedMessage = serializationStrategy.DeserializeMessage(serializedMessage.Properties, serializedMessage.Body);
 
-            Assert.That(deserializedMessage.MessageType, Is.EqualTo(message.Body.GetType()));
-            Assert.That(((Message<MyMessageV2>)deserializedMessage).Body.Text, Is.EqualTo(message.Body.Text));
-            Assert.That(((Message<MyMessageV2>)deserializedMessage).Body.Number, Is.EqualTo(message.Body.Number));
+            Assert.Equal(message.Body.GetType(), deserializedMessage.MessageType);
+            Assert.Equal(message.Body.Text, ((Message<MyMessageV2>)deserializedMessage).Body.Text);
+            Assert.Equal(message.Body.Number, ((Message<MyMessageV2>)deserializedMessage).Body.Number);
         }
 
         [Fact]
@@ -215,35 +215,35 @@ namespace EasyNetQ.Tests.MessageVersioningTests
 
             var deserializedMessage = serializationStrategy.DeserializeMessage(serializedMessage.Properties, serializedMessage.Body);
 
-            Assert.That(deserializedMessage.MessageType, Is.EqualTo(typeof(MyMessageV2)));
-            Assert.That(((Message<MyMessageV2>)deserializedMessage).Body.Text, Is.EqualTo(message.Body.Text));
-            Assert.That(((Message<MyMessageV2>)deserializedMessage).Body.Number, Is.EqualTo(message.Body.Number));
+            Assert.Equal(typeof(MyMessageV2), deserializedMessage.MessageType);
+            Assert.Equal(message.Body.Text, ((Message<MyMessageV2>)deserializedMessage).Body.Text);
+            Assert.Equal(message.Body.Number, ((Message<MyMessageV2>)deserializedMessage).Body.Number);
         }
 
         private void AssertMessageSerializedCorrectly(SerializedMessage message, byte[] expectedBody, Action<MessageProperties> assertMessagePropertiesCorrect)
         {
-            Assert.That(message.Body, Is.EqualTo(expectedBody), "Serialized message body does not match expected value");
+            Assert.Equal(expectedBody, message.Body);
             assertMessagePropertiesCorrect(message.Properties);
         }
 
         private void AssertMessageDeserializedCorrectly(IMessage<MyMessage> message, string expectedBodyText, Type expectedMessageType, Action<MessageProperties> assertMessagePropertiesCorrect)
         {
-            Assert.That(message.Body.Text, Is.EqualTo(expectedBodyText), "Deserialized message body text does not match expected value");
-            Assert.That(message.MessageType, Is.EqualTo(expectedMessageType), "Deserialized message type does not match expected value");
+            Assert.Equal(expectedBodyText, message.Body.Text);
+            Assert.Equal(expectedMessageType, message.MessageType);
 
             assertMessagePropertiesCorrect(message.Properties);
         }
 
         private void AssertDefaultMessagePropertiesCorrect(MessageProperties properties, string expectedType, string expectedCorrelationId)
         {
-            Assert.That(properties.Type, Is.EqualTo(expectedType), "Message type does not match expected value");
-            Assert.That(properties.CorrelationId, Is.EqualTo(expectedCorrelationId), "Message correlation id does not match expected value");
+            Assert.Equal(expectedType, properties.Type);
+            Assert.Equal(expectedCorrelationId, properties.CorrelationId);
         }
 
         private void AssertVersionedMessagePropertiesCorrect(MessageProperties properties, string expectedType, string expectedCorrelationId, string alternativeTypes)
         {
             AssertDefaultMessagePropertiesCorrect(properties, expectedType, expectedCorrelationId);
-            Assert.That(properties.Headers[AlternativeMessageTypesHeaderKey], Is.EqualTo(alternativeTypes), "Alternative message types do not match expected value");
+            Assert.Equal(alternativeTypes, properties.Headers[AlternativeMessageTypesHeaderKey]);
         }
 
         private VersionedMessageSerializationStrategy CreateSerializationStrategy<T>(IMessage<T> message, IEnumerable<KeyValuePair<string, Type>> messageTypes, byte[] messageBody, string correlationId) where T : class

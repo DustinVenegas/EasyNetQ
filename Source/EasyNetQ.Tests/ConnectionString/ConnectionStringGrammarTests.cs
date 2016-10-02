@@ -58,15 +58,14 @@ namespace EasyNetQ.Tests.ConnectionString
         [Fact]
         public void Should_try_to_parse_amqp()
         {
-            Assert.That(() => ConnectionStringGrammar.AMQP.Parse("asd"),
-                        Throws.InstanceOf<ParseException>()
-                        .With.Message.Contains("asd"));
+            var ex = Assert.Throws<ParseException>(() => ConnectionStringGrammar.AMQP.Parse("asd"));
+            Assert.Contains("asd", ex.Message);
         }
 
         [Fact]
         public void Should_throw_when_parsing_empty()
         {
-            Assert.That(() => ConnectionStringGrammar.ConnectionStringBuilder.Parse(""), Throws.InstanceOf<ParseException>());
+            Assert.Throws<ParseException>(() => ConnectionStringGrammar.ConnectionStringBuilder.Parse(""));
         }
     }
 

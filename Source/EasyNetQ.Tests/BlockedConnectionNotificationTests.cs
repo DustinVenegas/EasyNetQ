@@ -30,7 +30,7 @@ namespace EasyNetQ.Tests
             advancedBus.Blocked += (s,e) => blocked = true;
             connection.Raise(r => r.ConnectionBlocked += (s, e) => { }, connection, new ConnectionBlockedEventArgs("some reason"));
 
-            Assert.That(blocked, Is.True);
+            Assert.True(blocked);
         }
     }
 
@@ -56,7 +56,7 @@ namespace EasyNetQ.Tests
             advancedBus.Unblocked += (s,e) => blocked = false;
             connection.Raise(r => r.ConnectionUnblocked += (s, e) => { }, connection, new EventArgs());
 
-            Assert.That(blocked, Is.False);
+            Assert.False(blocked);
         }
     }
 }
