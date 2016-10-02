@@ -26,7 +26,8 @@ namespace EasyNetQ.Tests.Integration
             bus.Dispose();
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void Does_transient_queue_cause_channel_to_close_after_consuming_one_message()
         {
             var queue = bus.Advanced.QueueDeclare();

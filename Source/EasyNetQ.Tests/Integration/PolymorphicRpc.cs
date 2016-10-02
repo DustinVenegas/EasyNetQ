@@ -7,7 +7,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [Explicit("Requires a local RabbitMQ instance to work")]
+    [Trait("RabbitMQ", "Localhost")]
     public class PolymorphicRpc
     {
         private IBus bus;

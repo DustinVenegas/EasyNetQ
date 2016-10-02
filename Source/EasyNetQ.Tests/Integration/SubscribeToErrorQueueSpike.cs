@@ -24,7 +24,7 @@ namespace EasyNetQ.Tests.Integration
         }
 
         [Fact]
-        [Explicit("Requires a RabbitMQ server on localhost")]
+        [Trait("RabbitMQ", "Localhost")]
         public void Should_create_some_error_messages()
         {
             bus.Subscribe<MyMessage>("error_read_test", message =>
@@ -40,7 +40,7 @@ namespace EasyNetQ.Tests.Integration
         }
 
         [Fact]
-        [Explicit("Requires a RabbitMQ server on localhost")]
+        [Trait("RabbitMQ", "Localhost")]
         public void Should_be_able_to_subscribe_to_error_messages()
         {
             var errorQueueName = new Conventions(new TypeNameSerializer()).ErrorQueueNamingConvention();

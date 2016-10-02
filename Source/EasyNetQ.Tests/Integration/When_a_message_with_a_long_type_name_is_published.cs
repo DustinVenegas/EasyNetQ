@@ -22,7 +22,7 @@ namespace EasyNetQ.Tests.Integration
         }
 
         [Fact]
-        [Explicit("Requires a broker on localhost to run")]
+        [Trait("RabbitMQ", "Localhost")]
         public void Should_not_throw_when_over_long_message_is_published()
         {
             var message =

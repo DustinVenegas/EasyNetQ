@@ -7,7 +7,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [Explicit("Integration test, requires a RabbitMQ instance on localhost")]
+    [Trait("RabbitMQ", "Localhost")]
     public class PublisherConfirmsIntegrationTests
     {
         private IBus bus;

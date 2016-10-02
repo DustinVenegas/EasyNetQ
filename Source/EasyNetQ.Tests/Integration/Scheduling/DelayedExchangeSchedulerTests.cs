@@ -8,7 +8,8 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration.Scheduling
 {
-    [Explicit("Requires RabbitMQ instance to be running on localhost AND rabbitmq_delayed_message_exchange plugin to be installed.")]
+    [Trait("RabbitMQ", "Localhost")]
+    [Trait("RabbitMQPlugins", "rabbitmq_delayed_message_exchange")]
     public class DelayedExchangeSchedulerTests
     {
         private IBus bus;

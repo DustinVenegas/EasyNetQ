@@ -8,7 +8,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration.Scheduling
 {
-    [Explicit("Requires RabbitMQ instance to be running on localhost")]
+    [Trait("RabbitMQ", "Localhost")]
     public class DeadLetterExchangeAndMessageTtlSchedulerTests
     {
         private IBus bus;

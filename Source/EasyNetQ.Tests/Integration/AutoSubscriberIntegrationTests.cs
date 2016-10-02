@@ -8,7 +8,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [Explicit("Requires a RabbitMQ broker on localhost.")]
+    [Trait("RabbitMQ", "Localhost")]
     public class AutoSubscriberIntegrationTests
     {
         private IBus bus;
@@ -31,14 +31,14 @@ namespace EasyNetQ.Tests.Integration
         }
 
         [Fact]
-        [Explicit("Requires a RabbitMQ broker on localhost.")]
+        [Trait("RabbitMQ", "Localhost")]
         public void PublishWithTopic()
         {
             bus.Publish(new AutoSubMessage{ Text = "With topic" }, "mytopic");
         }
 
         [Fact]
-        [Explicit("Requires a RabbitMQ broker on localhost.")]
+        [Trait("RabbitMQ", "Localhost")]
         public void PublishWithoutTopic()
         {
             bus.Publish(new AutoSubMessage{ Text = "Without topic" });

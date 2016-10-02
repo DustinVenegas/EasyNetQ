@@ -16,7 +16,7 @@ namespace EasyNetQ.Tests.Integration
     // code=200, text="Goodbye", classId=0, methodId=0, cause='. 
     // Message remains on RabbitMQ and will be retried. 
     // ConsumerTag: 36c2b0c5-11c9-4f4e-b3f8-9943d113e646, DeliveryTag: 1
-    [Explicit("Requires a RabbitMQ broker on localhost")]
+    [Trait("RabbitMQ", "Localhost")]
     public class ConsumerShutdownTests
     {
         [Fact]

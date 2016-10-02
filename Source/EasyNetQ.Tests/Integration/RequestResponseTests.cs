@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace EasyNetQ.Tests.Integration
 {
+    [Trait("RabbitMQ", "Localhost")]
     public class RequestResponseTests
     {
         private IBus bus;
@@ -40,7 +41,7 @@ namespace EasyNetQ.Tests.Integration
         }
 
         // First start the EasyNetQ.Tests.SimpleService console app.
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Large_number_of_request_calls_should_not_create_a_large_number_of_open_channels()
         {
             const int numberOfCalls = 100;
@@ -66,7 +67,7 @@ namespace EasyNetQ.Tests.Integration
         // First start the EasyNetQ.Tests.SimpleService console app.
         // Run this test. You should see the SimpleService report that it's
         // responding and the response should appear here.
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Should_be_able_to_do_simple_request_response()
         {
             var request = new TestRequestMessage {Text = "Hello from the client! "};
@@ -80,7 +81,7 @@ namespace EasyNetQ.Tests.Integration
         // First start the EasyNetQ.Tests.SimpleService console app.
         // Run this test. You should see the SimpleService report that it's
         // responding to 1000 messages and you should see the messages return here.
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Should_be_able_to_do_simple_request_response_lots()
         {
             const int numberOfCalls = 5000;
@@ -106,7 +107,7 @@ namespace EasyNetQ.Tests.Integration
         // First start the EasyNetQ.Tests.SimpleService console app.
         // Run this test. You should see the SimpleService report that it's
         // responding and the response should appear here.
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Should_be_able_to_make_a_request_that_runs_async_on_the_server()
         {
             var autoResetEvent = new AutoResetEvent(false);
@@ -125,7 +126,7 @@ namespace EasyNetQ.Tests.Integration
         // First start the EasyNetQ.Tests.SimpleService console app.
         // Run this test. You should see the SimpleService report that it's
         // responding and the response should appear here.
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Should_be_able_to_make_a_request_to_customly_defined_exchange()
         {
             var request = new TestModifiedRequestExhangeRequestMessage { Text = "Hello from the client to funky exchange!" };
@@ -140,7 +141,7 @@ namespace EasyNetQ.Tests.Integration
         // First start the EasyNetQ.Tests.SimpleService console app.
         // Run this test. You should see the SimpleService report that it's
         // responding and the response should appear here.
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Should_be_able_to_make_a_request_and_receive_response_to_customly_defined_exchange()
         {
             var request = new TestModifiedResponseExhangeRequestMessage { Text = "Hello from the client! I Wanna receive response via funky exchange!" };
@@ -155,7 +156,7 @@ namespace EasyNetQ.Tests.Integration
         // First start the EasyNetQ.Tests.SimpleService console app.
         // Run this test. You should see 1000 response messages on the SimpleService
         // and then 1000 messages appear back here.
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Should_be_able_to_make_many_async_requests()
         {
             const int numberOfCalls = 500;
@@ -182,7 +183,7 @@ namespace EasyNetQ.Tests.Integration
         /// Run this test. You should see an error message written to the error queue
         /// and an error logged
         /// </summary>
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Service_should_handle_sychronous_message_of_the_wrong_type()
         {
             const string routingKey = "EasyNetQ_Tests_TestRequestMessage:EasyNetQ_Tests_Messages";
@@ -196,7 +197,7 @@ namespace EasyNetQ.Tests.Integration
         /// Run this test. You should see an error message written to the error queue
         /// and an error logged
         /// </summary>
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Service_should_handle_asychronous_message_of_the_wrong_type()
         {
             const string routingKey = "EasyNetQ_Tests_TestAsyncRequestMessage:EasyNetQ_Tests_Messages";
@@ -228,7 +229,7 @@ namespace EasyNetQ.Tests.Integration
         // First start the EasyNetQ.Tests.SimpleService console app.
         // Run this test. You should see the SimpleService report that it's
         // Thrown and a new error message in the error queue.
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Should_be_able_to_do_simple_request_response_that_throws_on_server()
         {
             var request = new TestRequestMessage
@@ -248,7 +249,7 @@ namespace EasyNetQ.Tests.Integration
         // Run this test. You should see the SimpleService report that it's
         // Thrown, a new error message in the error queue and an EasyNetQResponderException
         // exception should be thrown by the consumer as a response.
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public async Task Should_throw_an_exception_at_consumer_on_simple_request_response_that_throws_on_server()
         {
             var request = new TestRequestMessage
@@ -268,7 +269,7 @@ namespace EasyNetQ.Tests.Integration
         // Run this test. You should see the SimpleService report that it's
         // responding and the response should appear here with an exception report.
         // you should also see a new error message in the error queue.
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Should_be_able_to_do_simple_request_response_that_throws_on_response_consumer()
         {
             var autoResetEvent = new AutoResetEvent(false);
@@ -288,7 +289,7 @@ namespace EasyNetQ.Tests.Integration
         // First start the EasyNetQ.Tests.SimpleService console app.
         // Run this test. You should see the SimpleService report that it's
         // responding and the response should appear here.
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Should_be_able_to_do_simple_request_response_that_takes_a_long_time()
         {
             var autoResetEvent = new AutoResetEvent(false);

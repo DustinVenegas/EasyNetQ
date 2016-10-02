@@ -21,7 +21,8 @@ namespace EasyNetQ.Tests
             Assert.Throws<MissingMethodException>(() => ReflectionHelpers.CreateInstance<ClassWithoutDefaultConstuctor>());
         }
 
-        [Fact, Explicit("Fails on build server.")]
+        [Fact(Skip = "Fails on build server. We should shore that up or remove this test if not reliable.")]
+        [Trait("Environment", "Localhost")]
         public void ShouldPerformFasterThanActivator()
         {
             // warmup
@@ -68,7 +69,8 @@ namespace EasyNetQ.Tests
             Assert.Throws<MissingMethodException>(() => ReflectionHelpers.CreateInstance(typeof(ClassWithDefaultConstuctor), 1));
         }
 
-        [Fact, Explicit("Fails on build server.")]
+        [Fact(Skip = "Fails on build server. We should shore that up or remove this test if not reliable.")]
+        [Trait("Environment", "Localhost")]
         public void ShouldPerformFasterThanActivatorSingleParameter()
         {
             // warmup
@@ -117,7 +119,8 @@ namespace EasyNetQ.Tests
             Assert.Throws<MissingMethodException>(() => ReflectionHelpers.CreateInstance(typeof(ClassWithDefaultConstuctor), 1, 2));
         }
 
-        [Fact, Explicit("Fails on build server.")]
+        [Fact(Skip = "Fails on build server. We should shore that up or remove this test if not reliable.")]
+        [Trait("Environment", "Localhost")]
         public void ShouldPerformFasterThanActivatorDualParameter()
         {
             // warmup
@@ -159,7 +162,8 @@ namespace EasyNetQ.Tests
             Assert.True(typeof(TestAttributedClass).GetAttributes<AnotherTestAttribute>().Any());
         }
 
-        [Fact, Explicit("Fails on build server")]
+        [Fact(Skip = "Fails on build server. We should shore that up or remove this test if not reliable.")]
+        [Trait("Environment", "Localhost")]
         public void ShouldPerformFasterThanGetCustomAttributes()
         {
             var type = typeof(TestAttributedClass);

@@ -12,7 +12,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [Explicit("Requires a RabbitMQ instance on localhost")]
+    [Trait("RabbitMQ", "Localhost")]
     public class ClientCommandDispatcherTests
     {
         private IClientCommandDispatcher dispatcher;

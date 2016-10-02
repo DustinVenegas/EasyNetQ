@@ -6,9 +6,10 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
+    [Trait("RabbitMQ", "Localhost")]
     public class SubscribeWithExpiresTests
     {
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Queue_should_be_deleted_after_the_expires_ttl()
         {
             Exception actualEx = null;
@@ -44,7 +45,7 @@ namespace EasyNetQ.Tests.Integration
             Assert.NotNull(actualEx);
         }
 
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Queue_should_not_be_deleted_if_expires_is_not_set()
         {
             var bus = RabbitHutch.CreateBus("host=localhost");

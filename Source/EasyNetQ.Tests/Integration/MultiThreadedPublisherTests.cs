@@ -7,6 +7,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
+    [Trait("RabbitMQ", "Localhost")]
     public class MultiThreadedPublisherTests
     {
         private IBus bus;
@@ -27,7 +28,7 @@ namespace EasyNetQ.Tests.Integration
             }
         }
 
-        [Fact, Explicit("Requires a local rabbitMq instance to run")]
+        [Fact]
         public void MultThreaded_publisher_should_not_cause_channel_proliferation()
         {
             var threads = new List<Thread>();
@@ -46,7 +47,7 @@ namespace EasyNetQ.Tests.Integration
         }
 
         // First start the EasyNetQ.Tests.SimpleService console app.
-        [Fact, Explicit("Requires a local RabbitMQ instance to run")]
+        [Fact]
         public void MultiThreaded_requester_should_not_cause_channel_proliferation()
         {
             var threads = new List<Thread>();

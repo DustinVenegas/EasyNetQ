@@ -13,7 +13,7 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [Explicit]
+    [Trait("RabbitMQ", "Localhost")]
     public class AdvancedApiPingPongTest
     {
         private readonly IBus[] buses = new IBus[2];
@@ -57,7 +57,8 @@ namespace EasyNetQ.Tests.Integration
             }
         }
 
-        [Fact, Explicit("Requires a RabbitMQ instance on localhost.")]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void Ping_pong_with_advanced_consumers()
         {
             IntermittentDisconnection();

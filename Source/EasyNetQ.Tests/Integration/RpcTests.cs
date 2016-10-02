@@ -6,7 +6,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [Explicit("Requires a RabbitMQ instance on localhost")]
+    [Trait("RabbitMQ", "Localhost")]
     public class RpcTests
     {
         private class RpcRequest

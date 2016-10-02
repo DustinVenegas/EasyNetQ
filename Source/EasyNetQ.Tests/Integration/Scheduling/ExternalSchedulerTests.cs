@@ -8,7 +8,8 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration.Scheduling
 {
-    [Explicit("Needs an instance of RabbitMQ on localhost to work AND scheduler service running")]
+    [Trait("RabbitMQ", "Localhost")]
+    [Trait("Scheduler", "True")]
     public class ExternalSchedulerTests
     {
         private IBus bus;

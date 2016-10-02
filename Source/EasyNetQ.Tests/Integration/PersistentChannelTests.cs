@@ -9,7 +9,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [Explicit("Requires a broker on localhost.")]
+    [Trait("RabbitMQ", "Localhost")]
     public class PersistentChannelTests
     {
         private IPersistentConnection connection;

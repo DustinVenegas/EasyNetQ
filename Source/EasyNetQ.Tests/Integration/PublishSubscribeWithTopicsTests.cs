@@ -6,6 +6,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
+    [Trait("RabbitMQ", "Localhost")]
     public class PublishSubscribeWithTopicsTests
     {
         private IBus bus;
@@ -27,7 +28,7 @@ namespace EasyNetQ.Tests.Integration
             return new MyMessage { Text = "Hello! " + Guid.NewGuid().ToString().Substring(0, 5) };
         }
 
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Publish_some_messages_with_topics()
         {
             bus.Publish(CreateMessage(), "X.A");
@@ -35,7 +36,7 @@ namespace EasyNetQ.Tests.Integration
             bus.Publish(CreateMessage(), "Y.A");
         }
 
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Subscribe_to_messages_with_topics()
         {
             var countdownEvent = new CountdownEvent(7);
@@ -61,7 +62,7 @@ namespace EasyNetQ.Tests.Integration
             countdownEvent.Wait(1000);
         }
 
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Should_subscribe_to_multiple_topic_strings()
         {
             var countdownEvent = new CountdownEvent(7);
@@ -74,7 +75,7 @@ namespace EasyNetQ.Tests.Integration
             countdownEvent.Wait(500);
         }
 
-        [Fact, Explicit("Needs a Rabbit instance on localhost to work")]
+        [Fact]
         public void Publish_a_messages_without_a_topic()
         {
             bus.Publish(CreateMessage());

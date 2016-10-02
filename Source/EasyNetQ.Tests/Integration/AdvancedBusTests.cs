@@ -3,7 +3,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [Explicit("Requires a RabbitMQ instance on localhost to work")]
+    [Trait("RabbitMQ", "Localhost")]
     public class AdvancedBusTests
     {
         private IBus bus;

@@ -9,7 +9,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [Explicit("Requires a RabbitMQ instance on localhost")]
+    [Trait("RabbitMQ", "Localhost")]
     public class AdvancedApiExamples
     {
         private IAdvancedBus advancedBus;
@@ -26,7 +26,8 @@ namespace EasyNetQ.Tests.Integration
             advancedBus.Dispose();
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void DeclareTopology()
         {
             var queue = advancedBus.QueueDeclare("my_queue");
@@ -35,7 +36,8 @@ namespace EasyNetQ.Tests.Integration
 
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void DeclareTopologyAndCheckPassive()
         {
             var queue = advancedBus.QueueDeclare("my_queue");
@@ -44,13 +46,15 @@ namespace EasyNetQ.Tests.Integration
             advancedBus.ExchangeDeclare("my_exchange", ExchangeType.Direct, passive: true);
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void DeclareWithTtlAndExpire()
         {
             advancedBus.QueueDeclare("my_queue", perQueueMessageTtl: 500, expires: 500);
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void DeclareExchangeWithAlternate()
         {
             const string alternate = "alternate";
@@ -66,7 +70,8 @@ namespace EasyNetQ.Tests.Integration
             advancedBus.Publish(originalExchange, bindingKey, false, new MessageProperties(), message);
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void DeclareDelayedExchange()
         {
             const string bindingKey = "the-binding-key";
@@ -82,7 +87,8 @@ namespace EasyNetQ.Tests.Integration
         }
 
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void ConsumeFromAQueue()
         {
             var queue = new Queue("my_queue", false);
@@ -95,7 +101,8 @@ namespace EasyNetQ.Tests.Integration
             Thread.Sleep(500);
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void PublishToAnExchange()
         {
             var exchange = new Exchange("my_exchange");
@@ -106,7 +113,8 @@ namespace EasyNetQ.Tests.Integration
             Thread.Sleep(5000);
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void Should_be_able_to_delete_objects()
         {
             // declare some objects
@@ -120,7 +128,8 @@ namespace EasyNetQ.Tests.Integration
             advancedBus.QueueDelete(queue);
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void Should_consume_a_message()
         {
             var queue = advancedBus.QueueDeclare("consume_test");
@@ -133,7 +142,8 @@ namespace EasyNetQ.Tests.Integration
             Thread.Sleep(1000);
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void Should_be_able_to_get_a_message()
         {
             var queue = advancedBus.QueueDeclare("get_test");
@@ -151,7 +161,8 @@ namespace EasyNetQ.Tests.Integration
             }
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void Should_set_MessageAvailable_to_false_when_queue_is_empty()
         {
             var queue = advancedBus.QueueDeclare("get_empty_queue_test");
@@ -163,7 +174,8 @@ namespace EasyNetQ.Tests.Integration
             }
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void Should_be_able_to_get_queue_length()
         {
             var queue = advancedBus.QueueDeclare("count_test");
@@ -172,7 +184,8 @@ namespace EasyNetQ.Tests.Integration
             Console.WriteLine("{0} messages in queue", messageCount);
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void Should_be_able_to_dead_letter_to_fixed_queue()
         {
             // create a main queue and a retry queue with retry queue dead lettering messages directly
@@ -193,7 +206,8 @@ namespace EasyNetQ.Tests.Integration
             Thread.Sleep(1000);
         }
 
-        [Fact, Explicit]
+        [Fact]
+        [Trait("RabbitMQ", "Localhost")]
         public void Should_be_able_to_dead_letter_to_given_exchange()
         {
             // create a main queue and a retry queue both binding to the same topic exchange with 

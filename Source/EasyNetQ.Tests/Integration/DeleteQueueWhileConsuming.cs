@@ -8,7 +8,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [Explicit("Requires a RabbitMQ on localhost")]
+    [Trait("RabbitMQ", "Localhost")]
     public class DeleteQueueWhileConsuming
     {
         private IBus bus;

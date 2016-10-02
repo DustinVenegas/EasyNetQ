@@ -6,7 +6,7 @@ using Xunit;
 
 namespace EasyNetQ.Tests.Integration
 {
-    [Explicit("Requires a RabbitMQ broker on localhost")]
+    [Trait("RabbitMQ", "Localhost")]
     public class SendReceiveIntegrationTests
     {
         private IBus bus;

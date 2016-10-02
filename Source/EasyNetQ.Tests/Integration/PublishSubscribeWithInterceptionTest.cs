@@ -24,7 +24,7 @@ namespace EasyNetQ.Tests.Integration
 
 
         [Fact]
-        [Explicit("Needs an instance of RabbitMQ on localhost to work")]
+        [Trait("RabbitMQ", "Localhost")]
         public void Should_be_able_to_get_a_message()
         {
             var autoResetEvent = new AutoResetEvent(false);
