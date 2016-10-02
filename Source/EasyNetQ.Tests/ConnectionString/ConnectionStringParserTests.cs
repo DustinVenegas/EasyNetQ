@@ -75,25 +75,29 @@ namespace EasyNetQ.Tests.ConnectionString
             Assert.Throws<EasyNetQException>(() => connectionStringParser.Parse("host=localhost;unknownKey=true"));
         }
 
-        [TestCaseSource("AppendixAExamples")]
+        [Theory]
+        [MemberData(nameof(AppendixAExamples))]
         public void Should_parse_Examples(AmqpSpecification spec)
         {
             ConnectionConfiguration connectionConfiguration = connectionStringParser.Parse("" + spec.amqpUri);
 
-            connectionConfiguration.Port.ShouldEqual(spec.port);
+            connectionConfiguration.Port.ShouldEqual((ushort)spec.port);
             connectionConfiguration.AMQPConnectionString.ShouldEqual(spec.amqpUri);
             connectionConfiguration.Hosts.First().Host.ShouldEqual(spec.host);
-            connectionConfiguration.Hosts.First().Port.ShouldEqual(spec.port);
+            connectionConfiguration.Hosts.First().Port.ShouldEqual((ushort)spec.port);
         }
 
 // ReSharper disable UnusedMethodReturnValue.Local
-        private IEnumerable<AmqpSpecification> AppendixAExamples()
+        public static IEnumerable<object[]> AppendixAExamples
 // ReSharper restore UnusedMethodReturnValue.Local
         {
-            yield return new AmqpSpecification(new Uri("amqp://user:pass@host:10000/vhost"), "host", 10000);
-            yield return new AmqpSpecification(new Uri("amqp://"), "", 5672);
-            yield return new AmqpSpecification(new Uri("amqp://host"), "host", 5672);
-            yield return new AmqpSpecification(new Uri("amqps://host"), "host", 5672);
+            get
+            {
+                yield return new object[] { new AmqpSpecification(new Uri("amqp://user:pass@host:10000/vhost"), "host", 10000) };
+                yield return new object[] { new AmqpSpecification(new Uri("amqp://"), "", 5672) };
+                yield return new object[] { new AmqpSpecification(new Uri("amqp://host"), "host", 5672) };
+                yield return new object[] { new AmqpSpecification(new Uri("amqps://host"), "host", 5672) };
+            }
         }
 
         [Fact]
