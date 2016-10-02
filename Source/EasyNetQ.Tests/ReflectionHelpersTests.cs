@@ -52,7 +52,7 @@ namespace EasyNetQ.Tests
             stopWatch.Stop();
             var activator = stopWatch.Elapsed;
             Assert.True(creatorTime < activator);
-            Assert.AreEqual(2000000, count);
+            Assert.Equal(2000000, count);
         }
 
         [Fact]
@@ -102,7 +102,7 @@ namespace EasyNetQ.Tests
             stopWatch.Stop();
             var activator = stopWatch.Elapsed;
             Assert.True(creatorTime < activator);
-            Assert.AreEqual(2000000, count);
+            Assert.Equal(2000000, count);
         }
 
         [Fact]
@@ -152,7 +152,7 @@ namespace EasyNetQ.Tests
             stopWatch.Stop();
             var activator = stopWatch.Elapsed;
             Assert.True(creatorTime < activator);
-            Assert.AreEqual(6000000, count);
+            Assert.Equal(6000000, count);
         }
 
         [Fact]
@@ -193,7 +193,7 @@ namespace EasyNetQ.Tests
             stopWatch.Stop();
             var getAttributesTime = stopWatch.Elapsed;
             Assert.True(getAttributesTime + getAttributesTime < getCustomAttributesTime);
-            Assert.AreEqual(2000000, count);
+            Assert.Equal(2000000, count);
             Console.WriteLine(getCustomAttributesTime);
             Console.WriteLine(getAttributesTime);
         }

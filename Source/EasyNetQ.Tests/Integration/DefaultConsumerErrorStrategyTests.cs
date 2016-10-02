@@ -139,7 +139,7 @@ namespace EasyNetQ.Tests
             connectionFactory.AssertWasNotCalled(f => f.CreateConnection());
             logger.AssertWasCalled(l => l.ErrorWrite(Arg.Text.Contains("DefaultConsumerErrorStrategy was already disposed"), Arg<Object>.Is.Anything));
 
-            Assert.AreEqual(AckStrategies.NackWithRequeue, ackStrategy);
+            Assert.Equal(AckStrategies.NackWithRequeue, ackStrategy);
         }
     }
 }
