@@ -8,9 +8,6 @@ namespace EasyNetQ.Tests.Integration
     [Trait("RabbitMQ", "Localhost")]
     public class ConnectionErrorConditionsTests
     {
-        [SetUp]
-        public void SetUp() {}
-
         [Fact]
         public void Should_write_a_useful_error_message_when_connetion_fails()
         {

@@ -12,8 +12,7 @@ namespace EasyNetQ.Tests.Integration
     {
         private IBus bus;
 
-        [SetUp]
-        public void SetUp()
+        public MultiThreadedPublisherTests()
         {
             bus = RabbitHutch.CreateBus("host=localhost");
             while(!bus.IsConnected) Thread.Sleep(10);

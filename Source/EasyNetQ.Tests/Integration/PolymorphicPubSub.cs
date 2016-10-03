@@ -12,8 +12,7 @@ namespace EasyNetQ.Tests.Integration
     {
         private IBus bus;
 
-        [SetUp]
-        public void SetUp()
+        public PolymorphicPubSub()
         {
             bus = RabbitHutch.CreateBus("host=localhost", x => x.Register<IEasyNetQLogger, NullLogger>());
         }

@@ -15,8 +15,7 @@ namespace EasyNetQ.Tests.ConsumeTests
         private MyMessage deliveredMyMessage;
         private MyOtherMessage deliveredMyOtherMessage;
 
-        [SetUp]
-        public void SetUp()
+        public When_a_message_is_received()
         {
             //mockBuilder = new MockBuilder(x => x.Register<IEasyNetQLogger, ConsoleLogger>());
             mockBuilder = new MockBuilder();

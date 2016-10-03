@@ -16,8 +16,7 @@ namespace EasyNetQ.Tests.ConsumeTests
         private MyOtherMessage myOtherMessageResult;
         private IAnimal animalResult;
 
-        [SetUp]
-        public void SetUp()
+        public When_a_consumer_has_multiple_handlers()
         {
             mockBuilder = new MockBuilder();
 

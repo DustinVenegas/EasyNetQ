@@ -12,8 +12,7 @@ namespace EasyNetQ.Tests.AutoSubscriberTests
         private IBus bus;
         private Action<ISubscriptionConfiguration> capturedAction;
        
-        [SetUp]
-        public void SetUp()
+        public When_autosubscribing_with_subscription_configuration_attribute()
         {
             bus = MockRepository.GenerateMock<IBus>();
             

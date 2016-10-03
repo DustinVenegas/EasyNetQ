@@ -16,8 +16,7 @@ namespace EasyNetQ.Tests
 		private Conventions conventions;
 	    private ITypeNameSerializer typeNameSerializer;
 
-		[SetUp]
-		public void SetUp()
+		public When_using_default_conventions()
 		{
             typeNameSerializer = new TypeNameSerializer();
 			conventions = new Conventions(typeNameSerializer);
@@ -88,8 +87,7 @@ namespace EasyNetQ.Tests
         private Conventions conventions;
         private ITypeNameSerializer typeNameSerializer;
 
-        [SetUp]
-        public void SetUp()
+        public When_using_QueueAttribute()
         {
             typeNameSerializer = new TypeNameSerializer();
             conventions = new Conventions(typeNameSerializer);
@@ -150,8 +148,7 @@ namespace EasyNetQ.Tests
         private MockBuilder mockBuilder;
 	    private ITypeNameSerializer typeNameSerializer;
 
-		[SetUp]
-		public void SetUp()
+		public When_publishing_a_message()
 		{
             typeNameSerializer = new TypeNameSerializer();
             var customConventions = new Conventions(typeNameSerializer)
@@ -201,8 +198,7 @@ namespace EasyNetQ.Tests
     {
         private MockBuilder mockBuilder;
 
-        [SetUp]
-        public void SetUp()
+        public When_registering_response_handler()
         {
             var customConventions = new Conventions(new TypeNameSerializer())
             {
@@ -242,8 +238,7 @@ namespace EasyNetQ.Tests
         private AckStrategy errorAckStrategy;
         private AckStrategy cancelAckStrategy;
 
-        [SetUp]
-        public void SetUp()
+        public When_using_default_consumer_error_strategy()
         {
             var customConventions = new Conventions(new TypeNameSerializer())
             {

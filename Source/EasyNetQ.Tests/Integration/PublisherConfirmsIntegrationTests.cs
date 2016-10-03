@@ -12,8 +12,7 @@ namespace EasyNetQ.Tests.Integration
     {
         private IBus bus;
 
-        [SetUp]
-        public void SetUp()
+        public PublisherConfirmsIntegrationTests()
         {
             var dlogger = new DelegateLogger
                 {

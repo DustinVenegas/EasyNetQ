@@ -13,8 +13,7 @@ namespace EasyNetQ.Tests.Integration
     {
         private IBus bus;
 
-        [SetUp]
-        public void SetUp()
+        public AutoSubscriberIntegrationTests()
         {
             bus = RabbitHutch.CreateBus("host=localhost");
             var subscriber = new AutoSubscriber(bus, "autosub.integration");

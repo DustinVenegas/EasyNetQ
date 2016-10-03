@@ -51,8 +51,7 @@ namespace EasyNetQ.Tests
 
         private DefaultServiceProvider serviceProvider;
 
-        [SetUp]
-        public void SetUp()
+        public DefaultServiceProviderTestsX()
         {
             serviceProvider = new DefaultServiceProvider();
 
@@ -83,8 +82,7 @@ namespace EasyNetQ.Tests
         private IMyFirst myFirst;
         private SomeDelegate someDelegate;
 
-        [SetUp]
-        public void SetUp()
+        public DefaultServiceProviderTests()
         {
             myFirst = MockRepository.GenerateStub<IMyFirst>();
             someDelegate = () => { };

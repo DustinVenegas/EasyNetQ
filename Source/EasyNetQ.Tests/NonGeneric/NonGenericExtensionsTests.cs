@@ -13,8 +13,7 @@ namespace EasyNetQ.Tests.NonGeneric
     {
         private MockBuilder mockBuilder;
 
-        [SetUp]
-        public void SetUp()
+        public NonGenericExtensionsTests()
         {
             mockBuilder = new MockBuilder();
         }

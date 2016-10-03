@@ -12,8 +12,7 @@ namespace EasyNetQ.Tests.Integration
     {
         private IBus bus;
 
-        [SetUp]
-        public void SetUp()
+        public NonGenericExtensionsIntegrationTests()
         {
             bus = RabbitHutch.CreateBus("host=localhost");
         }

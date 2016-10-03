@@ -13,8 +13,7 @@ namespace EasyNetQ.Tests.ProducerTests
     {
         private MockBuilder mockBuilder;
 
-        [SetUp]
-        public void SetUp()
+        public When_IModel_throws_because_of_closed_connection()
         {
             mockBuilder = new MockBuilder("host=localhost;timeout=1");
 

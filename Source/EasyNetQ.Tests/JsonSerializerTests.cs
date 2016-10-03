@@ -10,13 +10,7 @@ namespace EasyNetQ.Tests
 {
     public class JsonSerializerTests
     {
-        private ISerializer serializer;
-
-        [SetUp]
-        public void SetUp()
-        {
-            serializer = new JsonSerializer(new TypeNameSerializer());
-        }
+        private readonly ISerializer serializer = new JsonSerializer(new TypeNameSerializer());
 
         [Fact]
         public void Should_be_able_to_serialize_and_deserialize_a_message()

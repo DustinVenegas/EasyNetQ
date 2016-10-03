@@ -26,8 +26,7 @@ namespace EasyNetQ.Tests.PersistentConsumerTests
         protected const string queueName = "my_queue";
         protected int createConsumerCalled;
         
-        [SetUp]
-        public void SetUp()
+        public Given_a_PersistentConsumer()
         {
             eventBus = new EventBus();
             internalConsumers = new List<IInternalConsumer>();

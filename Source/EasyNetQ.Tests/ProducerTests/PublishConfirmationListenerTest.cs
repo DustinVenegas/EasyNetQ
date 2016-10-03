@@ -14,8 +14,7 @@ namespace EasyNetQ.Tests.ProducerTests
         private IModel model;
         private ulong DeliveryTag = 42;
 
-        [SetUp]
-        public void SetUp()
+        public PublishConfirmationListenerTest()
         {
             eventBus = new EventBus();
             model = MockRepository.GenerateStrictMock<IModel>();

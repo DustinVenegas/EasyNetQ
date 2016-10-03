@@ -17,8 +17,7 @@ namespace EasyNetQ.Tests
     {
         private IBus bus;
 
-        [SetUp]
-        public void SetUp()
+        public ConsumerErrorConditionsTests()
         {
             bus = RabbitHutch.CreateBus(new ConnectionConfiguration() {Hosts = new HostConfiguration[] {new HostConfiguration() { Host = "localhost"} }},
                 reg => { reg.Register<IEasyNetQLogger>(p => new ConsoleLogger()); });

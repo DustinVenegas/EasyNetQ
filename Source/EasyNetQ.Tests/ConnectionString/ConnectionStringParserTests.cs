@@ -10,17 +10,11 @@ namespace EasyNetQ.Tests.ConnectionString
 {
     public class ConnectionStringParserTests
     {
-        private ConnectionStringParser connectionStringParser;
+        private readonly ConnectionStringParser connectionStringParser = new ConnectionStringParser();
 
         private const string connectionString =
             "virtualHost=Copa;username=Copa;host=192.168.1.1;password=abc_xyz;port=12345;" + 
             "requestedHeartbeat=3;prefetchcount=2;timeout=12;publisherConfirms=true;cancelOnHaFailover=true";
-
-        [SetUp]
-        public void SetUp()
-        {
-            connectionStringParser = new ConnectionStringParser();
-        }
 
         [Fact]
         public void Should_correctly_parse_connection_string()

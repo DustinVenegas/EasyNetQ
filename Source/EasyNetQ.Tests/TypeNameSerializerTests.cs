@@ -9,14 +9,7 @@ namespace EasyNetQ.Tests
     {
         const string expectedTypeName = "System.String:mscorlib";
         private const string expectedCustomTypeName = "EasyNetQ.Tests.SomeRandomClass:EasyNetQ.Tests";
-
-        private ITypeNameSerializer typeNameSerializer;
-
-        [SetUp]
-        public void SetUp()
-        {
-            typeNameSerializer = new TypeNameSerializer();
-        }
+        private readonly ITypeNameSerializer typeNameSerializer = new TypeNameSerializer();
 
         [Fact]
         public void Should_serialize_a_type_name()

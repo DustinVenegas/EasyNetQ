@@ -16,8 +16,7 @@ namespace EasyNetQ.Tests.ProducerTests
         private byte[] publishedMessage;
         private IBasicProperties properties;
 
-        [SetUp]
-        public void SetUp()
+        public When_a_polymorphic_message_is_sent()
         {
             mockBuilder = new MockBuilder();
 

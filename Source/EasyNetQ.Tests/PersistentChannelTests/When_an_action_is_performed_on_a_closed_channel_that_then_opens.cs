@@ -17,8 +17,7 @@ namespace EasyNetQ.Tests.PersistentChannelTests
         private IPersistentConnection persistentConnection;
         private IModel channel;
 
-        [SetUp]
-        public void SetUp()
+        public When_an_action_is_performed_on_a_closed_channel_that_then_opens()
         {
             persistentConnection = MockRepository.GenerateStub<IPersistentConnection>();
             channel = MockRepository.GenerateStub<IModel>();

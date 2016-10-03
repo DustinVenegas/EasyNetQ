@@ -22,8 +22,7 @@ namespace EasyNetQ.Tests.Integration
         private const long rallyLength = 1000;
         private long rallyCount;
 
-        [SetUp]
-        public void SetUp()
+        public AdvancedApiPingPongTest_with_transient_queue()
         {
             rallyCount = 0;
             for (int i = 0; i < 2; i++)

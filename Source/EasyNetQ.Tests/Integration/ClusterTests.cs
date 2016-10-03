@@ -18,8 +18,7 @@ namespace EasyNetQ.Tests.Integration
 
         private IBus bus;
 
-        [SetUp]
-        public void SetUp()
+        public ClusterTests()
         {
             const string hostFormat = "{0}:{1}";
             var host1 = string.Format(hostFormat, clusterHost1, clusterPort1);

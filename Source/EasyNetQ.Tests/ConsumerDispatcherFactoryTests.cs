@@ -13,8 +13,7 @@ namespace EasyNetQ.Tests
         private IConsumerDispatcherFactory dispatcherFactory;
         private IEasyNetQLogger logger;
 
-        [SetUp]
-        public void SetUp()
+        public ConsumerDispatcherFactoryTests()
         {
             var parser = new ConnectionStringParser();
             var configuration = parser.Parse("host=localhost");

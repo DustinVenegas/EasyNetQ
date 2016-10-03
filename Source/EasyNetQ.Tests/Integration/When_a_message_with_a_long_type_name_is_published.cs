@@ -9,8 +9,7 @@ namespace EasyNetQ.Tests.Integration
     {
         private IBus bus;
 
-        [SetUp]
-        public void SetUp()
+        public When_a_message_with_a_long_type_name_is_published()
         {
             bus = RabbitHutch.CreateBus("host=localhost");
         }

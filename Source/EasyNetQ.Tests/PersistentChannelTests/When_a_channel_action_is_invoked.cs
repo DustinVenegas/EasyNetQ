@@ -15,8 +15,7 @@ namespace EasyNetQ.Tests.PersistentChannelTests
         private IModel channel;
         private IEventBus eventBus;
 
-        [SetUp]
-        public void SetUp()
+        public When_a_channel_action_is_invoked()
         {
             persistentConnection = MockRepository.GenerateStub<IPersistentConnection>();
             channel = MockRepository.GenerateStub<IModel>();

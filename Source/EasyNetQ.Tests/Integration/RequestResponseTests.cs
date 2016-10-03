@@ -25,8 +25,7 @@ namespace EasyNetQ.Tests.Integration
             {typeof (TestModifiedResponseExhangeResponseMessage), "ChangedRpcResponseExchange"}
         };
 
-        [SetUp]
-        public void SetUp()
+        public RequestResponseTests()
         {
             bus = RabbitHutch.CreateBus("host=localhost");
             bus.Advanced.Conventions.RpcRequestExchangeNamingConvention = type => customRpcRequestConventionDictionary.ContainsKey(type) ? customRpcRequestConventionDictionary[type] : defaultRpcExchange;

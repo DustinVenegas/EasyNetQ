@@ -12,8 +12,7 @@ namespace EasyNetQ.Tests.ProducerTests
     {
         private MockBuilder mockBuilder;
 
-        [SetUp]
-        public void SetUp()
+        public When_a_request_is_sent_but_the_connection_closes_before_a_reply_is_received()
         {
             mockBuilder = new MockBuilder();
         }

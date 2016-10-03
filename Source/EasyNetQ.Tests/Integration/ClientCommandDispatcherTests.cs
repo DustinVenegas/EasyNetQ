@@ -18,8 +18,7 @@ namespace EasyNetQ.Tests.Integration
         private IClientCommandDispatcher dispatcher;
         private IPersistentConnection connection;
 
-        [SetUp]
-        public void SetUp()
+        public ClientCommandDispatcherTests()
         {
             var eventBus = new EventBus();
             var logger = new ConsoleLogger();

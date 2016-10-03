@@ -9,11 +9,6 @@ namespace EasyNetQ.Tests.ConnectionString
 {
     public class ConnectionStringGrammarTests
     {
-        [SetUp]
-        public void SetUp()
-        {
-        }
-
         [Fact]
         public void Should_parse_host()
         {

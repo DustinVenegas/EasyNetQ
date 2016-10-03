@@ -12,8 +12,7 @@ namespace EasyNetQ.Tests.ConsumeTests
         private AckResult result;
         private const ulong deliveryTag = 1234;
 
-        [SetUp]
-        public void Setup()
+        public Ack_strategy()
         {
             model = MockRepository.GenerateStrictMock<IModel>();
             model.Expect(m => m.BasicAck(deliveryTag, false));
@@ -41,8 +40,7 @@ namespace EasyNetQ.Tests.ConsumeTests
         private AckResult result;
         private const ulong deliveryTag = 1234;
 
-        [SetUp]
-        public void Setup()
+        public NackWithoutRequeue_strategy()
         {
             model = MockRepository.GenerateStrictMock<IModel>();
             model.Expect(m => m.BasicNack(deliveryTag, false, false));
@@ -70,8 +68,7 @@ namespace EasyNetQ.Tests.ConsumeTests
         private AckResult result;
         private const ulong deliveryTag = 1234;
 
-        [SetUp]
-        public void Setup()
+        public NackWithRequeue_strategy()
         {
             model = MockRepository.GenerateStrictMock<IModel>();
             model.Expect(m => m.BasicNack(deliveryTag, false, true));
@@ -99,8 +96,7 @@ namespace EasyNetQ.Tests.ConsumeTests
         private AckResult result;
         private const ulong deliveryTag = 1234;
 
-        [SetUp]
-        public void Setup()
+        public Nothing_strategy()
         {
             model = MockRepository.GenerateStrictMock<IModel>();
 

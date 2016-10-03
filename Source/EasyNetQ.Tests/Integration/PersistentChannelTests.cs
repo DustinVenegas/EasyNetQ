@@ -15,8 +15,7 @@ namespace EasyNetQ.Tests.Integration
         private IPersistentConnection connection;
         private IPersistentChannel persistentChannel;
 
-        [SetUp]
-        public void SetUp()
+        public PersistentChannelTests()
         {
             var logger = new ConsoleLogger();
             var eventBus = new EventBus();

@@ -15,8 +15,7 @@ namespace EasyNetQ.Tests.PersistentChannelTests
         private IPersistentChannel persistentChannel;
         private IPersistentConnection persistentConnection;
 
-        [SetUp]
-        public void SetUp()
+        public When_an_action_is_performed_on_a_closed_channel_that_doesnt_open_again()
         {
             persistentConnection = MockRepository.GenerateStub<IPersistentConnection>();
             var eventBus = MockRepository.GenerateStub<IEventBus>();

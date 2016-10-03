@@ -11,8 +11,7 @@ namespace EasyNetQ.Tests
         private IBus bus;
         private MockBuilder mockBuilder;
 
-        [SetUp]
-        public void SetUp()
+        public ModelCleanupTests()
         {
             mockBuilder = new MockBuilder();
             bus = mockBuilder.Bus;

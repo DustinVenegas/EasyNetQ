@@ -13,8 +13,7 @@ namespace EasyNetQ.Tests.ConsumeTests
         private MockBuilder mockBuilder;
         ITestMessageInterface receivedMessage;
 
-        [SetUp]
-        public void SetUp()
+        public When_a_polymorphic_message_is_delivered_to_the_consumer()
         {
             mockBuilder = new MockBuilder();
 

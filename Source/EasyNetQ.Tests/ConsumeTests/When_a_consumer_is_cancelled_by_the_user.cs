@@ -14,8 +14,7 @@ namespace EasyNetQ.Tests.ConsumeTests
     {
         private MockBuilder mockBuilder;
 
-        [SetUp]
-        public void SetUp()
+        public When_a_consumer_is_cancelled_by_the_user()
         {
             mockBuilder = new MockBuilder();
 

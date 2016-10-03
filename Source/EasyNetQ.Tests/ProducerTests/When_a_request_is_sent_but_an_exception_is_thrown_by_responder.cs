@@ -17,8 +17,7 @@ namespace EasyNetQ.Tests.ProducerTests
         private TestRequestMessage requestMessage;
         private string _correlationId;
 
-        [SetUp]
-        public void SetUp()
+        public When_a_request_is_sent_but_an_exception_is_thrown_by_responder()
         {
             mockBuilder = new MockBuilder();
 

@@ -14,8 +14,7 @@ namespace EasyNetQ.Tests.Integration
     {
         private IAdvancedBus advancedBus;
 
-        [SetUp]
-        public void SetUp()
+        public AdvancedApiExamples()
         {
             advancedBus = RabbitHutch.CreateBus("host=localhost").Advanced;
         }

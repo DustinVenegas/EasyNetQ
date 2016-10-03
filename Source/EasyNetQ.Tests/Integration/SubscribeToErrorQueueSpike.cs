@@ -11,8 +11,7 @@ namespace EasyNetQ.Tests.Integration
     {
         private IBus bus;
 
-        [SetUp]
-        public void SetUp()
+        public SubscribeToErrorQueueSpike()
         {
             bus = RabbitHutch.CreateBus("host=localhost");
         }

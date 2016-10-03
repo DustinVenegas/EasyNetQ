@@ -14,8 +14,7 @@ namespace EasyNetQ.Tests
         private IConnection connection;
         private IAdvancedBus advancedBus;
 
-        [SetUp]
-        public void SetUp()
+        public When_a_connection_becomes_blocked()
         {
             mockBuilder = new MockBuilder();
 
@@ -40,8 +39,7 @@ namespace EasyNetQ.Tests
         private IConnection connection;
         private IAdvancedBus advancedBus;
 
-        [SetUp]
-        public void SetUp()
+        public When_a_connection_becomes_unblocked()
         {
             mockBuilder = new MockBuilder();
 

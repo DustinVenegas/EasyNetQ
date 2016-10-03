@@ -7,8 +7,7 @@ namespace EasyNetQ.Tests.Interception
     {
         private static MockRepository mockRepository;
 
-        [SetUp]
-        public void SetUp()
+        public UnitTestBase()
         {
             mockRepository = new MockRepository();
             mockRepository.ReplayAll();

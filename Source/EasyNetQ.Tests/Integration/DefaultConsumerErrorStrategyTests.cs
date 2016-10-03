@@ -20,8 +20,7 @@ namespace EasyNetQ.Tests
         private ISerializer serializer;
         private IConventions conventions;
 
-        [SetUp]
-        public void SetUp()
+        public DefaultConsumerErrorStrategyTests()
         {
             var configuration = new ConnectionConfiguration
             {

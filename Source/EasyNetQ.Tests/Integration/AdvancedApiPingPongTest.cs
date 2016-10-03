@@ -26,8 +26,7 @@ namespace EasyNetQ.Tests.Integration
         private const long rallyLength = 10000;
         private long rallyCount;
 
-        [SetUp]
-        public void SetUp()
+        public AdvancedApiPingPongTest()
         {
             var loggers = new[]
                 {

@@ -21,8 +21,7 @@ namespace EasyNetQ.Tests
         private bool messageReturnedCalled = false;
         private MessageReturnedEventArgs messageReturnedEventArgs;
 
-        [SetUp]
-        public void SetUp()
+        public AdvancedBusEventHandlersTests()
         {
             advancedBusEventHandlers = new AdvancedBusEventHandlers(
                 connected: (s, e) => connectedCalled = true,

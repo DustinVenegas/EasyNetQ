@@ -14,8 +14,7 @@ namespace EasyNetQ.Tests.Integration.Scheduling
         private IBus bus;
         private ConsoleLogger logger;
 
-        [SetUp]
-        public void SetUp()
+        public DeadLetterExchangeAndMessageTtlSchedulerTests()
         {
             logger = new ConsoleLogger();
             bus = RabbitHutch.CreateBus("host=localhost", x =>

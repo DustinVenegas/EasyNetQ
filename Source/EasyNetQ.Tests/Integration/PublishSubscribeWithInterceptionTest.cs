@@ -8,8 +8,7 @@ namespace EasyNetQ.Tests.Integration
 {
     public class PublishSubscribeWithInterceptionTest
     {
-        [SetUp]
-        public void SetUp()
+        public PublishSubscribeWithInterceptionTest()
         {
             bus = RabbitHutch.CreateBus("host=localhost", x => x.EnableInterception(r => r.EnableGZipCompression().EnableTripleDESEncryption(Convert.FromBase64String("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"), Convert.FromBase64String("aaaaaaaaaaa="))));
         }

@@ -11,11 +11,6 @@ namespace EasyNetQ.Tests
 {
     public class MessagePropertiesTests
     {
-        [SetUp]
-        public void SetUp()
-        {
-        }
-
         [Fact]
         public void Should_copy_from_Rabbit_client_properties()
         {

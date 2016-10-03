@@ -28,8 +28,7 @@ namespace EasyNetQ.Tests.HandlerRunnerTests
 
         private IModel channel;
 
-        [SetUp]
-        public void SetUp()
+        public When_a_user_handler_is_executed()
         {
             //var logger = new ConsoleLogger();
             var logger = MockRepository.GenerateStub<IEasyNetQLogger>();

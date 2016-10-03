@@ -15,8 +15,7 @@ namespace EasyNetQ.Tests.ProducerTests
         private TestRequestMessage requestMessage;
         private TestResponseMessage responseMessage;
 
-        [SetUp]
-        public void SetUp()
+        public When_a_request_is_sent()
         {
             mockBuilder = new MockBuilder();
 

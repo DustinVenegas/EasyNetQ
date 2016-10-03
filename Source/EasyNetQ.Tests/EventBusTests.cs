@@ -9,8 +9,7 @@ namespace EasyNetQ.Tests
     {
         private IEventBus eventBus;
 
-        [SetUp]
-        public void SetUp()
+        public EventBusTests()
         {
             eventBus = new EventBus();
         }
