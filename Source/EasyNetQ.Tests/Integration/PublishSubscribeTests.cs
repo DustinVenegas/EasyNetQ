@@ -273,7 +273,12 @@ namespace EasyNetQ.Tests.Integration
             var done = autoResetEvent.WaitOne(1000);
 
             Assert.True(done);
-            CollectionAssert.Equal(received, expected);
+            Assert.Equal(expected.Count, received.Count);
+
+            for(var i=0; i<expected.Count; i++)
+            {
+                Assert.Equal(expected[i], received[i]);
+            }
 
             testLocalBus.Dispose();
         }
