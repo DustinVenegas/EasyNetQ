@@ -79,7 +79,7 @@ namespace EasyNetQ.Tests
 
             var result = serializer.BytesToMessage<PolyMessage>(bytes);
 
-            Assert.IsInstanceOf<B>(result.AorB);
+            Assert.IsType<B>(result.AorB);
         }
 
         [Fact]
@@ -90,7 +90,7 @@ namespace EasyNetQ.Tests
             var bytes = serializer.MessageToBytes(new PolyMessage { AorB = new B() });
             var result = (PolyMessage)serializer.BytesToMessage(typeName, bytes);
 
-            Assert.IsInstanceOf<B>(result.AorB);
+            Assert.IsType<B>(result.AorB);
         }
     }
 }
