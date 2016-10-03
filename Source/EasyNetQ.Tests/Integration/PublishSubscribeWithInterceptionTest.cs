@@ -41,8 +41,7 @@ namespace EasyNetQ.Tests.Integration
 
             bus.Publish(invitation);
 
-            if (! autoResetEvent.WaitOne(100000))
-                Assert.Fail();
+            Assert.True(autoResetEvent.WaitOne(100000));
         }
     }
 }

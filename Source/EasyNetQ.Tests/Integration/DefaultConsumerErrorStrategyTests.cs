@@ -82,22 +82,18 @@ namespace EasyNetQ.Tests
             using(var model = connection.CreateModel())
             {
                 var getArgs = model.BasicGet(conventions.ErrorQueueNamingConvention(), true);
-                if (getArgs == null)
-                {
-                    Assert.Fail("Nothing on the error queue");
-                }
-                else
-                {
-                    var message = serializer.BytesToMessage<Error>(getArgs.Body);
 
-                    message.RoutingKey.ShouldEqual(context.Info.RoutingKey);
-                    message.Exchange.ShouldEqual(context.Info.Exchange);
-                    message.Message.ShouldEqual(originalMessage);
-                    message.Exception.ShouldEqual("System.Exception: I just threw!");
-                    message.DateTime.Date.ShouldEqual(DateTime.UtcNow.Date);
-                    message.BasicProperties.CorrelationId.ShouldEqual(context.Properties.CorrelationId);
-                    message.BasicProperties.AppId.ShouldEqual(context.Properties.AppId);
-                }
+                Assert.NotNull(getArgs);
+
+                var message = serializer.BytesToMessage<Error>(getArgs.Body);
+
+                message.RoutingKey.ShouldEqual(context.Info.RoutingKey);
+                message.Exchange.ShouldEqual(context.Info.Exchange);
+                message.Message.ShouldEqual(originalMessage);
+                message.Exception.ShouldEqual("System.Exception: I just threw!");
+                message.DateTime.Date.ShouldEqual(DateTime.UtcNow.Date);
+                message.BasicProperties.CorrelationId.ShouldEqual(context.Properties.CorrelationId);
+                message.BasicProperties.AppId.ShouldEqual(context.Properties.AppId);
             }
         }
 
