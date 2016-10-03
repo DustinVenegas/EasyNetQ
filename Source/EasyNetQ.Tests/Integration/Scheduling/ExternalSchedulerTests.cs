@@ -10,7 +10,7 @@ namespace EasyNetQ.Tests.Integration.Scheduling
 {
     [Trait("RabbitMQ", "Localhost")]
     [Trait("Scheduler", "True")]
-    public class ExternalSchedulerTests
+    public class ExternalSchedulerTests : IDisposable
     {
         private IBus bus;
         private ConsoleLogger logger;
@@ -25,8 +25,7 @@ namespace EasyNetQ.Tests.Integration.Scheduling
             });
         }
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             bus.Dispose();
         }

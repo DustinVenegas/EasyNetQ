@@ -10,7 +10,7 @@ namespace EasyNetQ.Tests.Integration.Scheduling
 {
     [Trait("RabbitMQ", "Localhost")]
     [Trait("RabbitMQPlugins", "rabbitmq_delayed_message_exchange")]
-    public class DelayedExchangeSchedulerTests
+    public class DelayedExchangeSchedulerTests : IDisposable
     {
         private IBus bus;
         private ConsoleLogger logger;
@@ -25,8 +25,7 @@ namespace EasyNetQ.Tests.Integration.Scheduling
             });
         }
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             bus.Dispose();
         }

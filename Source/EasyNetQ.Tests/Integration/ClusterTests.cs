@@ -8,7 +8,7 @@ namespace EasyNetQ.Tests.Integration
 {
     [Trait("RabbitMQ", "Localhost")]
     [Trait("OS", "Ubuntu")]
-    public class ClusterTests
+    public class ClusterTests : IDisposable
     {
         private const string clusterHost1 = "ubuntu";
         private const string clusterHost2 = "ubuntu";
@@ -29,8 +29,7 @@ namespace EasyNetQ.Tests.Integration
             bus = RabbitHutch.CreateBus(connectionString);
         }
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             bus.Dispose();
         }

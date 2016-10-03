@@ -5,10 +5,11 @@ using EasyNetQ.ConnectionString;
 using EasyNetQ.Consumer;
 using Xunit;
 using Rhino.Mocks;
+using System;
 
 namespace EasyNetQ.Tests
 {
-    public class ConsumerDispatcherFactoryTests
+    public class ConsumerDispatcherFactoryTests : IDisposable
     {
         private IConsumerDispatcherFactory dispatcherFactory;
         private IEasyNetQLogger logger;
@@ -21,8 +22,7 @@ namespace EasyNetQ.Tests
             dispatcherFactory = new ConsumerDispatcherFactory(configuration, logger);
         }
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             dispatcherFactory.Dispose();
         }

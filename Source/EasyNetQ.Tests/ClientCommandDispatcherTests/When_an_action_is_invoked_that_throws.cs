@@ -9,7 +9,7 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.ClientCommandDispatcherTests
 {
-    public class When_an_action_is_invoked_that_throws
+    public class When_an_action_is_invoked_that_throws : IDisposable
     {
         private IClientCommandDispatcher dispatcher;
         private IPersistentChannel channel;
@@ -30,8 +30,7 @@ namespace EasyNetQ.Tests.ClientCommandDispatcherTests
 
         }
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             dispatcher.Dispose();
         }

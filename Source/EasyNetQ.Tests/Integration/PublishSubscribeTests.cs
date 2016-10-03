@@ -10,7 +10,7 @@ using Xunit;
 namespace EasyNetQ.Tests.Integration
 {
     [Trait("RabbitMQ", "Localhost")]
-    public class PublishSubscribeTests
+    public class PublishSubscribeTests : IDisposable
     {
         private IBus bus;
 
@@ -20,8 +20,7 @@ namespace EasyNetQ.Tests.Integration
             while(!bus.IsConnected) Thread.Sleep(10);
         }
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             if(bus != null) bus.Dispose();
         }

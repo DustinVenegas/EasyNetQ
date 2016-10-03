@@ -7,7 +7,7 @@ using Xunit;
 namespace EasyNetQ.Tests.Integration
 {
     [Trait("RabbitMQ", "Localhost")]
-    public class RpcTests
+    public class RpcTests : IDisposable
     {
         private class RpcRequest
         {
@@ -26,8 +26,7 @@ namespace EasyNetQ.Tests.Integration
             bus = RabbitHutch.CreateBus("host=localhost", x => x.Register<IEasyNetQLogger>(_ => new ConsoleLogger()));
         }
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             bus.Dispose();
         }

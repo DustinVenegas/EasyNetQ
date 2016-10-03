@@ -10,7 +10,7 @@ using Xunit;
 namespace EasyNetQ.Tests.Integration
 {
     [Trait("RabbitMQ", "Localhost")]
-    public class PersistentChannelTests
+    public class PersistentChannelTests : IDisposable
     {
         private IPersistentConnection connection;
         private IPersistentChannel persistentChannel;
@@ -28,8 +28,7 @@ namespace EasyNetQ.Tests.Integration
             connection.Initialize();
         }
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             connection.Dispose();
         }

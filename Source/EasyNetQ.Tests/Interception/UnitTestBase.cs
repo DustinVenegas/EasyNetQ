@@ -1,9 +1,10 @@
+using System;
 using Xunit;
 using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.Interception
 {
-    public class UnitTestBase
+    public class UnitTestBase : IDisposable
     {
         private static MockRepository mockRepository;
 
@@ -14,8 +15,7 @@ namespace EasyNetQ.Tests.Interception
         }
 
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             mockRepository.VerifyAll();
         }

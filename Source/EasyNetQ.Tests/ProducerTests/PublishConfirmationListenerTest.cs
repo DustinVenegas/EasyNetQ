@@ -7,7 +7,7 @@ using Rhino.Mocks;
 
 namespace EasyNetQ.Tests.ProducerTests
 {
-    public class PublishConfirmationListenerTest
+    public class PublishConfirmationListenerTest : IDisposable
     {
         private EventBus eventBus;
         private PublishConfirmationListener publishConfirmationListener;
@@ -21,8 +21,7 @@ namespace EasyNetQ.Tests.ProducerTests
             publishConfirmationListener = new PublishConfirmationListener(eventBus);
         }
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             model.VerifyAllExpectations();
         }

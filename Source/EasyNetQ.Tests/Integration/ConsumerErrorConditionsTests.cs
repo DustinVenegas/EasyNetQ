@@ -13,7 +13,7 @@ namespace EasyNetQ.Tests
     using EasyNetQ.Loggers;
 
     [Trait("RabbitMQ", "Localhost")]
-    public class ConsumerErrorConditionsTests
+    public class ConsumerErrorConditionsTests : IDisposable
     {
         private IBus bus;
 
@@ -23,8 +23,7 @@ namespace EasyNetQ.Tests
                 reg => { reg.Register<IEasyNetQLogger>(p => new ConsoleLogger()); });
         }
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             bus.Dispose();
         }

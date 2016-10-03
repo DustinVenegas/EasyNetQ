@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace EasyNetQ.Tests.Integration
 {
     [Trait("RabbitMQ", "Localhost")]
-    public class RequestResponseTests
+    public class RequestResponseTests : IDisposable
     {
         private IBus bus;
         private const string defaultRpcExchange = "easy_net_q_rpc";
@@ -33,8 +33,7 @@ namespace EasyNetQ.Tests.Integration
             bus.Respond<TestRequestMessage, TestResponseMessage>(req => new TestResponseMessage { Text = req.Text });
         }
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             bus.Dispose();
         }
