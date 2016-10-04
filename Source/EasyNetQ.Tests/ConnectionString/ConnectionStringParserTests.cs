@@ -25,10 +25,10 @@ namespace EasyNetQ.Tests.ConnectionString
             connectionConfiguration.VirtualHost.ShouldEqual("Copa");
             connectionConfiguration.UserName.ShouldEqual("Copa");
             connectionConfiguration.Password.ShouldEqual("abc_xyz");
-            connectionConfiguration.Port.ShouldEqual(12345);
-            connectionConfiguration.RequestedHeartbeat.ShouldEqual(3);
-            connectionConfiguration.PrefetchCount.ShouldEqual(2);
-            connectionConfiguration.Timeout.ShouldEqual(12);
+            connectionConfiguration.Port.ShouldEqual((ushort)12345);
+            connectionConfiguration.RequestedHeartbeat.ShouldEqual((ushort)3);
+            connectionConfiguration.PrefetchCount.ShouldEqual((ushort)2);
+            connectionConfiguration.Timeout.ShouldEqual((ushort)12);
             connectionConfiguration.PublisherConfirms.ShouldBeTrue();
             connectionConfiguration.CancelOnHaFailover.ShouldBeTrue();
         }
@@ -39,7 +39,7 @@ namespace EasyNetQ.Tests.ConnectionString
             const string connectionStringWithTimeout = "host=localhost;timeout=13";
             var connectionConfiguration = connectionStringParser.Parse(connectionStringWithTimeout);
 
-            connectionConfiguration.Timeout.ShouldEqual(13);
+            connectionConfiguration.Timeout.ShouldEqual((ushort)13);
         }
 
         [Fact]
@@ -99,7 +99,7 @@ namespace EasyNetQ.Tests.ConnectionString
         {
             ConnectionConfiguration connectionConfiguration = connectionStringParser.Parse("amqp=amqp://host/;port=123");
 
-            connectionConfiguration.Port.ShouldEqual(123);
+            connectionConfiguration.Port.ShouldEqual((ushort)123);
         }
 
         [Fact]
@@ -107,7 +107,7 @@ namespace EasyNetQ.Tests.ConnectionString
         {
             ConnectionConfiguration connectionConfiguration = connectionStringParser.Parse("amqp=amqp://host:1234/");
 
-            connectionConfiguration.Port.ShouldEqual(1234);
+            connectionConfiguration.Port.ShouldEqual((ushort)1234);
         }
 
         [Fact]
